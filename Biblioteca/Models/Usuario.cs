@@ -15,9 +15,13 @@ namespace Biblioteca.Models
         public string Apellidos { get; set; }
         public int TipoUsuario { get; set; }
         public DateTime FechaNacimiento { get; }
+        public string Telefono { get; set; }
         public bool Activo { get; set; }
 
-        public Usuario(int id, string email, string password, string nombres, string apellidos, int tipoUsuario, DateTime fechaNacimiento, bool activo)
+
+        public Usuario() { }
+
+        public Usuario(int id, string email, string password, string nombres, string apellidos, int tipoUsuario, DateTime fechaNacimiento, string telefono, bool activo)
         {
             Id = id;
             Email = email;
@@ -26,6 +30,18 @@ namespace Biblioteca.Models
             Apellidos = apellidos;
             TipoUsuario = tipoUsuario;
             FechaNacimiento = fechaNacimiento;
+            Telefono = telefono;
+            Activo = activo;
+        }
+        public Usuario(int id, string email, string nombres, string apellidos, int tipoUsuario, DateTime fechaNacimiento, string telefono, bool activo)
+        {
+            Id = id;
+            Email = email;
+            Nombres = nombres;
+            Apellidos = apellidos;
+            TipoUsuario = tipoUsuario;
+            FechaNacimiento = fechaNacimiento;
+            Telefono = telefono;
             Activo = activo;
         }
     }
