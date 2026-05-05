@@ -106,6 +106,8 @@
     </ApplicationDefinition>
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
+    <Compile Include="Db\LoginDb.cs" />
+    <Compile Include="Db\UsuarioDb.cs" />
     <Compile Include="Services\LoginService.cs" />
     <Compile Include="Services\UsuarioServicio.cs" />
     <Page Include="MainWindow.xaml">

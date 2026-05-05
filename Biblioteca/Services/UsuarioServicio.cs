@@ -1,4 +1,5 @@
-﻿using Biblioteca.Models;
+﻿using Biblioteca.Db;
+using Biblioteca.Models;
 using Org.BouncyCastle.Asn1.Mozilla;
 using System;
 using System.Collections.Generic;
@@ -12,26 +13,32 @@ namespace Biblioteca.Services
     {
         public void Crear(Usuario usuario)
         {
-
+            UsuarioDb usuarioDb = new UsuarioDb();
+            usuarioDb.CrearUsuario(usuario);
         }
 
         public List<Usuario> ObtenerTodos()
         {
-
+            UsuarioDb usuarioDb = new UsuarioDb();
+            return usuarioDb.Obtener();
         }
 
         public Usuario ObtenerPorId(int idUsuario)
         {
-
+            UsuarioDb usuarioDb = new UsuarioDb();
+            return usuarioDb.ObtenerPorId(idUsuario);
         }
 
         public void Actualizar(Usuario usuario)
         {
-
+            UsuarioDb usuarioDb = new UsuarioDb();
+            usuarioDb.Actualizar(usuario);
         }
 
         public void Eliminar(int idUsuario)
         {
+            UsuarioDb usuarioDb = new UsuarioDb();
+            usuarioDb.Eliminar(idUsuario);
         }
     }
 }
