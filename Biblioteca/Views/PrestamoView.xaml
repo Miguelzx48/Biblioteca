@@ -1,0 +1,35 @@
+﻿<Window x:Class="Biblioteca.Views.PrestamoView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Prestamos"
+        Height="450"
+        Width="500">
+
+    <Grid Margin="10">
+
+        <StackPanel>
+
+            <TextBlock Text="ID Prestamo"/>
+            <TextBox x:Name="txtIdPrestamo"/>
+
+            <TextBlock Text="ID Usuario"/>
+            <TextBox x:Name="txtIdUsuario"/>
+
+            <TextBlock Text="ID Libro"/>
+            <TextBox x:Name="txtIdLibro"/>
+
+            <TextBlock Text="Estado"/>
+            <TextBox x:Name="txtEstado"/>
+
+            <TextBlock Text="Multa"/>
+            <TextBox x:Name="txtMulta"/>
+
+            <Button Content="Guardar"
+                    Height="35"
+                    Margin="0,10,0,0"
+                    Click="Guardar_Click"/>
+
+        </StackPanel>
+
+    </Grid>
+</Window>
