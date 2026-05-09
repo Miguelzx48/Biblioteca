@@ -5,40 +5,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
+
 
 namespace Biblioteca.Services
 {
     internal class libroService
     {
-        public void Crear(libro libro)
+        public void CrearLibro(libro libro)
         {
-            UsuarioDb usuarioDb = new UsuarioDb();
-            usuarioDb.CrearUsuario(usuario);
+            LibroDb libroDb = new   LibroDb();
+            libroDb.CrearLibro(libro);
+        }
+        
+        public void Actualizar(libro libro)
+        {
+            LibroDb libroDb = new LibroDb();
+            libroDb.Actualizar(libro);
         }
 
-        public List<Usuario> ObtenerTodos()
+        public void Eliminar(int idLibro)
         {
-            UsuarioDb usuarioDb = new UsuarioDb();
-            return usuarioDb.Obtener();
-        }
-
-        public Usuario ObtenerPorId(int idUsuario)
-        {
-            UsuarioDb usuarioDb = new UsuarioDb();
-            return usuarioDb.ObtenerPorId(idUsuario);
-        }
-
-        public void Actualizar(Usuario usuario)
-        {
-            UsuarioDb usuarioDb = new UsuarioDb();
-            usuarioDb.Actualizar(usuario);
-        }
-
-        public void Eliminar(int idUsuario)
-        {
-            UsuarioDb usuarioDb = new UsuarioDb();
-            usuarioDb.Eliminar(idUsuario);
+            LibroDb libroDb = new LibroDb();
+            libroDb.Eliminar(idLibro);
         }
     }
 }
-}
+

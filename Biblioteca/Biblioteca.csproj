@@ -130,6 +130,15 @@
     <Compile Include="Services\LoginService.cs" />
     <Compile Include="Services\PrestamoService.cs" />
     <Compile Include="Services\UsuarioServicio.cs" />
+    <Compile Include="Views\EliminarLibroView.xaml.cs">
+      <DependentUpon>EliminarLibroView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LibroView.xaml.cs">
+      <DependentUpon>LibroView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PrestamoView.xaml.cs">
+      <DependentUpon>PrestamoView.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -142,6 +151,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\EliminarLibroView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LibroView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PrestamoView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Usuario.cs" />
@@ -171,8 +189,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

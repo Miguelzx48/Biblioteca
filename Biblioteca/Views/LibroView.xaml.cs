@@ -13,13 +13,7 @@ namespace Biblioteca.Views
         {
             InitializeComponent();
         }
-        private void ActualizarLibro(object sender, RoutedEventArgs e)
-        {
-            ActualizarLibroView ventana = new ActualizarLibroView();
-
-            ventana.Show();
-        }
-        
+       
         private void EliminarLibro(object sender, RoutedEventArgs e)
         {
             EliminarLibroView ventana = new EliminarLibroView();

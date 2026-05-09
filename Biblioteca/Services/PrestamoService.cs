@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
 
 namespace Biblioteca.Services
 {
@@ -20,11 +21,7 @@ namespace Biblioteca.Services
             PrestamoDb prestamoDb = new PrestamoDb();
             prestamoDb.Actualizar(prestamo);
         }
-        public void Buscar(Prestamo prestamo)
-        {
-            PrestamoDb prestamoDb = new PrestamoDb();
-            prestamoDb.Buscar(prestamo);
-        }
+        
 
 
 

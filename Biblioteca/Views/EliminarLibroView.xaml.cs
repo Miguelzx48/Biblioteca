@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using Biblioteca.Db;
+using System;
+using System.Windows;
 
 namespace Biblioteca.Views
 {
@@ -11,7 +13,19 @@ namespace Biblioteca.Views
 
         private void Eliminar(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Libro eliminado");
+            try
+            {
+                int idLibro = int.Parse(txtIdLibro.Text);
+
+                LibroDb db = new LibroDb();
+                db.Eliminar(idLibro);
+
+                MessageBox.Show("Libro eliminado correctamente");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
     }
 }

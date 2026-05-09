@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
+
 namespace Biblioteca.Db
 {
     public class UsuarioDb
@@ -134,5 +135,27 @@ namespace Biblioteca.Db
                 }
             }
         }
+        
+        public void ProbarConexion()
+        {
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    MessageBox.Show("Conexion exitosa");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
     }
+
 }
+    
+
+
