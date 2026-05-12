@@ -13,10 +13,11 @@ namespace Biblioteca.Views
         {
             InitializeComponent();
         }
+
        
-        private void EliminarLibro(object sender, RoutedEventArgs e)
+        private void Bodega(object sender, RoutedEventArgs e)
         {
-            EliminarLibroView ventana = new EliminarLibroView();
+            ListaLibrosView ventana = new ListaLibrosView();
 
             ventana.Show();
         }
@@ -32,7 +33,7 @@ namespace Biblioteca.Views
                 libro.Editorial = txtEditorial.Text;
                 libro.Stock = Convert.ToInt32(txtStock.Text);
                 libro.Descripcion = txtDescripcion.Text;
-                libro.AnioPublicaion = Convert.ToInt32(txtAnio.Text);
+                libro.AnioPublicacion = dtaAnio.SelectedDate?.Year ?? 0;
 
                 LibroDb db = new LibroDb();
 
@@ -45,10 +46,10 @@ namespace Biblioteca.Views
                 txtEditorial.Clear();
                 txtStock.Clear();
                 txtDescripcion.Clear();
-                txtAnio.Clear();
+                dtaAnio.SelectedDate = null;
             }
-            
-           catch (Exception ex)
+
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }

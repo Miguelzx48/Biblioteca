@@ -9,7 +9,7 @@ using MySql.Data.MySqlClient;
 
 namespace Biblioteca.Services
 {
-    internal class PrestamoService
+    public class PrestamoService
     {
         public void CrearPrestamo(Prestamo prestamo)
         {

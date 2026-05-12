@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Biblioteca.Models
 {
-    internal class libro
+    public class libro
     {
         public int IdLibro { get; set; }
         public string Nombre { get; set; }
@@ -16,13 +16,13 @@ namespace Biblioteca.Models
         public string Editorial { get; set; }
         public int Stock { get; set; }
         public string Descripcion { get; set; }
-        public int AnioPublicaion { get; set; }
+        public int AnioPublicacion { get; set; }
         
      
 
         public libro() { }
 
-        public libro(int idLibro , string nombre , string autor ,string categoria, string editorial , int stock , string descripcion , int anioPublicaion )
+        public libro(int idLibro , string nombre , string autor ,string categoria, string editorial , int stock , string descripcion , int anioPublicacion )
         {
             IdLibro = idLibro;
             Nombre = nombre;
@@ -31,7 +31,7 @@ namespace Biblioteca.Models
             Editorial = editorial;
             Stock = stock;
             Descripcion = descripcion;
-            AnioPublicaion = anioPublicaion;  
+            AnioPublicacion = anioPublicacion;  
            
        
     }

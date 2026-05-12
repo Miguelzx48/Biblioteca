@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Biblioteca.Controllers
 {
-    internal class PrestamoController
+    public class PrestamoController
     {
         public void CrearPrestamo(Prestamo prestamo)
         {

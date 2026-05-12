@@ -130,11 +130,14 @@
     <Compile Include="Services\LoginService.cs" />
     <Compile Include="Services\PrestamoService.cs" />
     <Compile Include="Services\UsuarioServicio.cs" />
-    <Compile Include="Views\EliminarLibroView.xaml.cs">
-      <DependentUpon>EliminarLibroView.xaml</DependentUpon>
+    <Compile Include="Views\ActualizarLibroView.xaml.cs">
+      <DependentUpon>ActualizarLibroView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LibroView.xaml.cs">
       <DependentUpon>LibroView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ListaLibrosView.xaml.cs">
+      <DependentUpon>ListaLibrosView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PrestamoView.xaml.cs">
       <DependentUpon>PrestamoView.xaml</DependentUpon>
@@ -151,10 +154,13 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\EliminarLibroView.xaml">
+    <Page Include="Views\ActualizarLibroView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\LibroView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ListaLibrosView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\PrestamoView.xaml">
@@ -189,6 +195,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Imagenes\book.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

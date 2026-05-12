@@ -10,7 +10,7 @@ using MySql.Data.MySqlClient;
 
 namespace Biblioteca.Services
 {
-    internal class libroService
+    public class libroService
     {
         public void CrearLibro(libro libro)
         {
@@ -29,6 +29,12 @@ namespace Biblioteca.Services
             LibroDb libroDb = new LibroDb();
             libroDb.Eliminar(idLibro);
         }
+        public List<libro> ObtenerLibros()
+        {
+            LibroDb libroDb = new LibroDb();
+            return libroDb.ObtenerTodos();
+        }
+        
     }
 }
 
