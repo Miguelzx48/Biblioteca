@@ -10,7 +10,7 @@ using MySql.Data.MySqlClient;
 
 namespace Biblioteca.Db
 {
-    internal class LibroDb
+    public class LibroDb
     {
         private readonly string connectionString = "server=localhost;database=Biblioteca;user=root;password=123;";
 
@@ -31,7 +31,7 @@ namespace Biblioteca.Db
                     cmd.Parameters.AddWithValue("@editorial", libro.Editorial);
                     cmd.Parameters.AddWithValue("@stock", libro.Stock);
                     cmd.Parameters.AddWithValue("@descripcion", libro.Descripcion);
-                    cmd.Parameters.AddWithValue("@aniopublicacion", libro.AnioPublicaion);
+                    cmd.Parameters.AddWithValue("@aniopublicacion", libro.AnioPublicacion);
                     cmd.ExecuteNonQuery();
                 }
             }
@@ -51,39 +51,6 @@ namespace Biblioteca.Db
                     cmd.Parameters.AddWithValue("@descripcion", libro.Descripcion);
                     cmd.Parameters.AddWithValue("@idLibro", libro.IdLibro);
                     cmd.ExecuteNonQuery();
-                }
-            }
-        }
-        public void Buscar(int idLibro)
-        {
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
-            {
-                conn.Open();
-
-                string query = @"SELECT IdLibro, Nombre, Autor, Categoria,
-                        Editorial, Stock, Descripcion, AñoPublicaion
-                        FROM Libros
-                        WHERE IdLibro = @idLibro";
-
-                using (MySqlCommand cmd = new MySqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@idLibro", idLibro);
-
-                    using (MySqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            MessageBox.Show(
-                                "Nombre: " + reader["Nombre"] +
-                                "\nAutor: " + reader["Autor"] +
-                                "\nCategoria: " + reader["Categoria"]
-                            );
-                        }
-                        else
-                        {
-                            MessageBox.Show("Libro no encontrado");
-                        }
-                    }
                 }
             }
         }
@@ -117,6 +84,39 @@ namespace Biblioteca.Db
                 MessageBox.Show(ex.Message);
             }
         }
+        public List<libro> ObtenerTodos()
+        {
+            List<libro> lista = new List<libro>();
 
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+
+                string query = "SELECT IdLibro, Nombre, Autor, Categoria, Editorial, Stock, Descripcion, AnioPublicacion FROM Libros";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            libro libro = new libro
+                            {
+                                IdLibro = Convert.ToInt32(reader["IdLibro"]),
+                                Nombre = reader["Nombre"].ToString(),
+                                Autor = reader["Autor"].ToString(),
+                                Categoria = reader["Categoria"].ToString(),
+                                Editorial = reader["Editorial"].ToString(),
+                                Stock = Convert.ToInt32(reader["Stock"]),
+                                Descripcion = reader["Descripcion"].ToString(),
+                                AnioPublicacion = Convert.ToInt32(reader["AnioPublicacion"])
+                            };
+                            lista.Add(libro);
+                        }
+                    }
+                }
+             }
+            return lista;
+        }
     }
 }

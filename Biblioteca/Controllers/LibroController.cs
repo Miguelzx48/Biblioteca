@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Biblioteca.Controllers
 {
-    internal class LibroController
+    public class LibroController
     {
         public void CrearLibro(libro libro)
         {

@@ -10,7 +10,7 @@ using MySql.Data.MySqlClient;
 
 namespace Biblioteca.Db
 {
-    internal class PrestamoDb
+    public class PrestamoDb
     {
         private readonly string connectionString = "";
         public PrestamoDb() { }
