@@ -11,6 +11,12 @@ namespace Biblioteca.Controllers
 {
     public class UsuarioController
     {
+        public void ValidarAdminDefault()
+        {
+            UsuarioServicio usuarioServicio = new UsuarioServicio();
+            usuarioServicio.ValidarAdminDefault();
+        }
+
         public void Crear(Usuario usuario)
         {
             UsuarioServicio usuarioServicio = new UsuarioServicio();

@@ -11,33 +11,42 @@ namespace Biblioteca.Services
 {
     public class UsuarioServicio
     {
+        private readonly UsuarioDb usuarioDb;
+        public UsuarioServicio()
+        {
+            usuarioDb = new UsuarioDb();
+        }
+
+        public void ValidarAdminDefault()
+        {
+            if (!usuarioDb.ExisteUsuarioAdminDefault())
+            {
+                usuarioDb.CrearUsuarioAdminDefault();
+            }
+        }
+
         public void Crear(Usuario usuario)
         {
-            UsuarioDb usuarioDb = new UsuarioDb();
             usuarioDb.CrearUsuario(usuario);
         }
 
         public List<Usuario> ObtenerTodos()
         {
-            UsuarioDb usuarioDb = new UsuarioDb();
-            return usuarioDb.Obtener();
+            return usuarioDb.Obtener();  
         }
 
         public Usuario ObtenerPorId(int idUsuario)
         {
-            UsuarioDb usuarioDb = new UsuarioDb();
             return usuarioDb.ObtenerPorId(idUsuario);
         }
 
         public void Actualizar(Usuario usuario)
         {
-            UsuarioDb usuarioDb = new UsuarioDb();
             usuarioDb.Actualizar(usuario);
         }
 
         public void Eliminar(int idUsuario)
         {
-            UsuarioDb usuarioDb = new UsuarioDb();
             usuarioDb.Eliminar(idUsuario);
         }
     }

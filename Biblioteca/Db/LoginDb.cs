@@ -10,7 +10,7 @@ namespace Biblioteca.Db
 {
     public class LoginDb
     {
-        private readonly string connectionString = "";
+        private readonly string connectionString = "server=localhost;database=Biblioteca;user=root;password=123;";
 
         public Usuario Login(string email, string password)
         {
@@ -18,7 +18,7 @@ namespace Biblioteca.Db
             {
                 conn.Open();
                 string query = @"SELECT Id, Email, Nombres, Apellidos, TipoUsuario, FechaNacimiento, Telefono, Activo
-                                WHERE Email = @email and Password = @password";
+                                FROM Usuarios WHERE Email = @email and Password = @password";
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@email", email);
@@ -45,17 +45,31 @@ namespace Biblioteca.Db
             return null;
         }
 
-        public void CambiarPassword(int idUsuario, string password)
+        public void CambiarPassword(string email, string password)
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
-                string query = "UPDATE Usuarios SET Password = @password WHERE Id = @id";
+                string query = "UPDATE Usuarios SET Password = @password WHERE Email = @Email";
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@password", password);
-                    cmd.Parameters.AddWithValue("@id", idUsuario);
+                    cmd.Parameters.AddWithValue("@Email", email);
                     cmd.ExecuteNonQuery();
+                }
+            }
+        }
+        public bool ValidarCorreo(string email)
+        {
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                string query = "SELECT COUNT(*) FROM Usuarios WHERE Email = @Email";
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Email", email);
+                    int count = Convert.ToInt32(cmd.ExecuteScalar());
+                    return count > 0;
                 }
             }
         }

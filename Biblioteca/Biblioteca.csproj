@@ -142,6 +142,15 @@
     <Compile Include="Views\PrestamoView.xaml.cs">
       <DependentUpon>PrestamoView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OlvidoPassword.xaml.cs">
+      <DependentUpon>OlvidoPassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Usuario\CrearUsuario.xaml.cs">
+      <DependentUpon>CrearUsuario.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -164,6 +173,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\PrestamoView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\OlvidoPassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Usuario\CrearUsuario.xaml">
+      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
