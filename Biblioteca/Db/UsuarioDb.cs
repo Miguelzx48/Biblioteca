@@ -165,5 +165,27 @@ namespace Biblioteca.Db
                 }
             }
         }
+        
+        public void ProbarConexion()
+        {
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    MessageBox.Show("Conexion exitosa");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
     }
+
 }
+    
+
+
