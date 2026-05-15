@@ -44,5 +44,17 @@ namespace Biblioteca.Models
             Telefono = telefono;
             Activo = activo;
         }
+
+        public Usuario(string email, string password, string nombres, string apellidos, int tipoUsuario, DateTime fechaNacimiento, string telefono, bool activo)
+        {  
+            Email = email;
+            Password = password;
+            Nombres = nombres;
+            Apellidos = apellidos;
+            TipoUsuario = tipoUsuario;
+            FechaNacimiento = fechaNacimiento;
+            Telefono = telefono;
+            Activo = activo;
+        }
     }
 }

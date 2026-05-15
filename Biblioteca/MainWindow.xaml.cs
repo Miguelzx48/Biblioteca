@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Biblioteca.Controllers;
+using Biblioteca.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,12 @@ namespace Biblioteca
         public MainWindow()
         {
             InitializeComponent();
+
+            UsuarioController usuarioController = new UsuarioController();
+            usuarioController.ValidarAdminDefault();
+
+            var login = new LoginView();
+            login.Show();
         }
     }
 }

@@ -13,7 +13,38 @@ namespace Biblioteca.Db
 {
     public class UsuarioDb
     {
-        private readonly string connectionString = "";
+        private readonly string connectionString = "server=localhost;database=Biblioteca;user=root;password=123;";
+
+
+        public bool ExisteUsuarioAdminDefault()
+        {
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                string query = "SELECT COUNT(*) FROM Usuarios WHERE email = 'admin@biblioteca.com'";
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    int count = Convert.ToInt32(cmd.ExecuteScalar());
+                    return count > 0;
+                }
+            }
+        }
+
+        public void CrearUsuarioAdminDefault()
+        {
+            Usuario admin = new Usuario
+            (
+                "admin@biblioteca.com",
+                "admin123",
+                "Admin",
+                "Default",
+                1,
+                new DateTime(1990, 1, 1),
+                "1234567890",
+                true
+            );
+            CrearUsuario(admin);
+        }
 
         public void CrearUsuario(Usuario usuario)
         {
