@@ -6,8 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
-
-
 namespace Biblioteca.Services
 {
     public class libroService
@@ -17,13 +15,11 @@ namespace Biblioteca.Services
             LibroDb libroDb = new   LibroDb();
             libroDb.CrearLibro(libro);
         }
-        
         public void Actualizar(libro libro)
         {
             LibroDb libroDb = new LibroDb();
             libroDb.Actualizar(libro);
         }
-
         public void Eliminar(int idLibro)
         {
             LibroDb libroDb = new LibroDb();
@@ -34,7 +30,6 @@ namespace Biblioteca.Services
             LibroDb libroDb = new LibroDb();
             return libroDb.ObtenerTodos();
         }
-        
     }
 }
 

@@ -5,35 +5,25 @@
         Height="500"
         Width="500"
         WindowStartupLocation="CenterScreen">
-
     <Grid Margin="20">
-
         <StackPanel>
-
             <TextBlock Text="Nombre"/>
             <TextBox x:Name="txtNombre"/>
-
             <TextBlock Text="Autor"
                        Margin="0,10,0,0"/>
             <TextBox x:Name="txtAutor"/>
-
             <TextBlock Text="Stock"
                        Margin="0,10,0,0"/>
             <TextBox x:Name="txtStock"/>
-
             <TextBlock Text="Descripción"
                        Margin="0,10,0,0"/>
             <TextBox x:Name="txtDescripcion"
                      Height="100"
                      AcceptsReturn="True"/>
-
             <Button Content="Actualizar"
                     Height="35"
                     Margin="0,20,0,0"
                     Click="ActualizarLibro"/>
-
         </StackPanel>
-
     </Grid>
-
 </Window>

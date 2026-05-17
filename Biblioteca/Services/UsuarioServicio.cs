@@ -16,25 +16,21 @@ namespace Biblioteca.Services
             UsuarioDb usuarioDb = new UsuarioDb();
             usuarioDb.CrearUsuario(usuario);
         }
-
         public List<Usuario> ObtenerTodos()
         {
             UsuarioDb usuarioDb = new UsuarioDb();
             return usuarioDb.Obtener();
         }
-
         public Usuario ObtenerPorId(int idUsuario)
         {
             UsuarioDb usuarioDb = new UsuarioDb();
             return usuarioDb.ObtenerPorId(idUsuario);
         }
-
         public void Actualizar(Usuario usuario)
         {
             UsuarioDb usuarioDb = new UsuarioDb();
             usuarioDb.Actualizar(usuario);
         }
-
         public void Eliminar(int idUsuario)
         {
             UsuarioDb usuarioDb = new UsuarioDb();

@@ -6,114 +6,154 @@
         Width="1000"
         WindowStartupLocation="CenterScreen"
         Background="#F5F7FA">
-
     <Grid Background="#FFCDE1FF">
-
         <Grid.RowDefinitions>
             <RowDefinition Height="80"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-
-        <!-- ENCABEZADO -->
         <Border Grid.Row="0">
-
             <Border.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF4749ED"/>
                     <GradientStop Color="#FF0079FF" Offset="1"/>
                 </LinearGradientBrush>
             </Border.Background>
-
             <TextBlock Text=" LIBROS"
                        Foreground="White"
                        FontSize="35"
                        FontWeight="Bold"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"/>
-
         </Border>
-       
-                                                                                
         <Grid Grid.Row="1" Margin="20">
 
-            <Border Background="White"
-                    CornerRadius="15"
-                    Padding="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- BOTÓN -->
+            <StackPanel Grid.Row="0"
+                Orientation="Horizontal"
+                HorizontalAlignment="Right">
+
+                <Button Content="EXPORTAR INVENTARIO PDF"
+                Width="220"
+                Height="45"
+                Margin="10"
+                Background="#D9534F"
+                Foreground="White"
+                FontWeight="Bold"
+                BorderThickness="0"
+                Click="ExportarPDF">
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+
+                            <Border Background="{TemplateBinding Background}"
+                            CornerRadius="12">
+
+                                <Border.Effect>
+                                    <DropShadowEffect BlurRadius="8"
+                                              ShadowDepth="4"
+                                              Opacity="0.3"/>
+                                </Border.Effect>
+
+                                <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"/>
+
+                            </Border>
+
+                        </ControlTemplate>
+
+                    </Button.Template>
+
+                </Button>
+
+            </StackPanel>
+
+            <!-- TABLA -->
+            <Border Grid.Row="1"
+            Background="White"
+            CornerRadius="15"
+            Padding="10">
 
                 <Border.Effect>
                     <DropShadowEffect BlurRadius="10"
-                                      ShadowDepth="5"
-                                      Opacity="0.3"/>
+                              ShadowDepth="5"
+                              Opacity="0.3"/>
                 </Border.Effect>
 
                 <DataGrid x:Name="dgLibros"
-                          AutoGenerateColumns="False"
-                          CanUserAddRows="False"
-                          FontSize="14"
-                          RowHeight="40">
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="False"
+                  FontSize="14"
+                  RowHeight="40">
 
                     <DataGrid.Columns>
 
                         <DataGridTextColumn Header="ID"
-                                            Binding="{Binding Id}"
-                                            Width="70"/>
+                                    Binding="{Binding IdLibro}"
+                                    Width="70"/>
 
                         <DataGridTextColumn Header="Nombre"
-                                            Binding="{Binding Nombre}"
-                                            Width="*"/>
+                                    Binding="{Binding Nombre}"
+                                    Width="100"/>
 
                         <DataGridTextColumn Header="Autor"
-                                            Binding="{Binding Autor}"
-                                            Width="180"/>
+                                    Binding="{Binding Autor}"
+                                    Width="120"/>
 
                         <DataGridTextColumn Header="Categoría"
-                                            Binding="{Binding Categoria}"
-                                            Width="150"/>
+                                    Binding="{Binding Categoria}"
+                                    Width="150"/>
 
                         <DataGridTextColumn Header="Stock"
-                                            Binding="{Binding Stock}"
-                                            Width="90"/>
+                                    Binding="{Binding Stock}"
+                                    Width="90"/>
 
-                        
+                        <DataGridTextColumn Header="Descripción"
+                                    Binding="{Binding Descripcion}"
+                                    Width="250"/>
+
+                        <DataGridTextColumn Header="AÑO PUBLICACION"
+                                    Binding="{Binding AnioPublicacion}"
+                                    Width="90"/>
+
                         <DataGridTemplateColumn Header="Actualizar"
-                                                Width="120">
+                                        Width="120">
 
                             <DataGridTemplateColumn.CellTemplate>
-
                                 <DataTemplate>
 
                                     <Button Content="Actualizar"
-                                            Background="#3A8DDB"
-                                            Foreground="White"
-                                            FontWeight="Bold"
-                                            Click="Actualizar"
-                                            Tag="{Binding}"
-                                            BorderThickness="0"/>
+                                    Background="#3A8DDB"
+                                    Foreground="White"
+                                    FontWeight="Bold"
+                                    Click="Actualizar"
+                                    Tag="{Binding}"
+                                    BorderThickness="0"/>
 
                                 </DataTemplate>
-
                             </DataGridTemplateColumn.CellTemplate>
 
                         </DataGridTemplateColumn>
 
-                        
                         <DataGridTemplateColumn Header="Eliminar"
-                                                Width="120">
+                                        Width="120">
 
                             <DataGridTemplateColumn.CellTemplate>
-
                                 <DataTemplate>
 
                                     <Button Content="Eliminar"
-                                            Background="#D9534F"
-                                            Foreground="White"
-                                            FontWeight="Bold"
-                                            Click="Eliminar"
-                                            Tag="{Binding}"
-                                            BorderThickness="0"/>
+                                    Background="#D9534F"
+                                    Foreground="White"
+                                    FontWeight="Bold"
+                                    Click="Eliminar"
+                                    Tag="{Binding}"
+                                    BorderThickness="0"/>
 
                                 </DataTemplate>
-
                             </DataGridTemplateColumn.CellTemplate>
 
                         </DataGridTemplateColumn>
@@ -125,7 +165,5 @@
             </Border>
 
         </Grid>
-
     </Grid>
-
 </Window>

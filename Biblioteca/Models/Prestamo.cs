@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 namespace Biblioteca.Models
 {
     public class Prestamo 
@@ -17,9 +16,7 @@ namespace Biblioteca.Models
         public int Multa { get; set; }
         public int CantidadDiasMora { get; set; }
         public bool Estado  { get; set; }
-        
         public Prestamo(){}
-
         public Prestamo(int idPrestamo, int idUsuario, int idLibro, DateTime fechaPrestamo, DateTime fechaEstimadaDevolucion, DateTime fechaRealDevolucion, int multa, int cantidadDiasMora, bool estado)
         {
             IdPrestamo = idPrestamo;

@@ -15,13 +15,11 @@ namespace Biblioteca.Controllers
             LibroDb libroDb = new LibroDb();
             libroDb.CrearLibro(libro);
         }
-
         public void Actualizar(libro libro)
         {
             LibroDb libroDb = new LibroDb();
             libroDb.Actualizar(libro);
         }
-
         public void Eliminar(int idLibro)
         {
             LibroDb libroDb = new LibroDb();

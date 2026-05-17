@@ -13,8 +13,6 @@ namespace Biblioteca.Db
     public class LibroDb
     {
         private readonly string connectionString = "server=localhost;database=Biblioteca;user=root;password=123;";
-
-
         public void CrearLibro(libro libro)
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))
@@ -54,7 +52,6 @@ namespace Biblioteca.Db
                 }
             }
         }
-        
         public void Eliminar(int idLibro)
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))
@@ -95,7 +92,7 @@ namespace Biblioteca.Db
                 string query = "SELECT IdLibro, Nombre, Autor, Categoria, Editorial, Stock, Descripcion, AnioPublicacion FROM Libros";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
-                {
+                                    {
                     using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())

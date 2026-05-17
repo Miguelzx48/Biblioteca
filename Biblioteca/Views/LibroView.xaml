@@ -7,16 +7,12 @@
         Width="800"
         WindowStartupLocation="CenterScreen"
         Background="#F5F7FA">
-
     <Grid Background="#FFCDE1FF">
-
         <Grid.RowDefinitions>
             <RowDefinition Height="80"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
-
-
         <Border
                 Grid.Row="0">
             <Border.Background>
@@ -25,16 +21,13 @@
                     <GradientStop Color="#FF0079FF" Offset="1"/>
                 </LinearGradientBrush>
             </Border.Background>
-
             <StackPanel Orientation="Horizontal"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center">
-
                 <Image Source="/Imagenes/book.png"
                Width="45"
                Height="45"
                Margin="0,0,20,0"></Image>
-
                 <TextBlock 
                Text="GESTION DE LIBROS"
                FontSize="40"
@@ -42,158 +35,138 @@
                FontWeight="Bold"
                Foreground="White"
                Margin="0,0,50,0">
-
                 </TextBlock>
-
             </StackPanel>
-
         </Border>
-
         <Grid Grid.Row="1" Margin="30">
-
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-
-
             <StackPanel Grid.Column="0" Margin="10">
-
                 <TextBlock Text="Nombre"
                    FontWeight="ExtraBlack"
                    FontSize="18"
-                   Margin="0,0,0,5"/>
-
-
+                   Margin="0,0,0,5" />
                 <Border CornerRadius="12"
                     Background="White"
                     BorderBrush="#BFC9D1"
                     BorderThickness="1"
                     Margin="0,0,0,0">
-
                     <Border.Effect>
-                        <DropShadowEffect BlurRadius="12"
+                <DropShadowEffect BlurRadius="12"
                   ShadowDepth="10"
                   Opacity="0.3"/>
-                    </Border.Effect>
-
-                    <TextBox x:Name="txtNombre"
+                  </Border.Effect>
+                  <TextBox x:Name="txtNombre"
                      Height="34"
                      Padding="10"
                      BorderThickness="0"
-                     Background="Transparent" Text="Titulo del Libro..." />
+                     Background="Transparent"
+                     Text="Título del libro..."
+                     Foreground="Gray"
+                     GotFocus="TextBox_GotFocus"
+         LostFocus="TextBox_LostFocus"/>
                 </Border>
-
                 <TextBlock Text="Autor"
                    FontWeight="ExtraBlack"
                    FontSize="18"
                    Margin="0,20,0,5"/>
-
                 <Border CornerRadius="12"
                     Background="White"
                     BorderBrush="#BFC9D1"
                     BorderThickness="1"
                     Margin="0,0,0,0">
-
                     <Border.Effect>
                         <DropShadowEffect BlurRadius="12"
                           ShadowDepth="10"
                           Opacity="0.3"/>
                     </Border.Effect>
-
                     <TextBox x:Name="txtAutor"
-                     Height="35"
-                     Padding="10"
-                     BorderThickness="0"
-                     Background="Transparent" Text="Nombre de Autor"/>
+                        Height="35"
+                        Padding="10"
+                        BorderThickness="0"
+                        Background="Transparent"
+                        Text="Ingrese el autor..."
+                        Foreground="Gray"
+                        GotFocus="TextBox_GotFocus"
+                        LostFocus="TextBox_LostFocus"/>         
                 </Border>
-
-
                 <TextBlock
                    Text="Categoria"
                    FontWeight="ExtraBlack"
                    FontSize="18"
                    Margin="0,22,0,5"/>
-
-
                 <Border CornerRadius="12"
                     Background="White"
                     BorderBrush="#BFC9D1"
                     BorderThickness="1"
                     Margin="0,0,0,10">
-
                     <Border.Effect>
                         <DropShadowEffect BlurRadius="12"
                           ShadowDepth="10"
                           Opacity="0.3"/>
                     </Border.Effect>
-
                     <TextBox x:Name="txtCategoria"
-                         Height="35"
-                         Padding="10"
-                         BorderThickness="0"
-                         Background="Transparent" Text="Categoria"/>
+                 Height="35"
+                 Padding="10"
+                 BorderThickness="0"
+                 Background="Transparent"
+                 Text="Ingrese la categoría..."
+                 Foreground="Gray"
+                 GotFocus="TextBox_GotFocus"
+                 LostFocus="TextBox_LostFocus"/>
                 </Border>
-
-
                 <TextBlock Text="Editorial"
                FontWeight="ExtraBlack"
                FontSize="18"
                Margin="0,20,0,5"/>
-
                 <Border CornerRadius="10"
                     Background="White"
                     BorderBrush="#BFC9D1"
                     BorderThickness="1">
-
                     <Border.Effect>
                         <DropShadowEffect BlurRadius="12"
                           ShadowDepth="10"
                           Opacity="0.3"/>
                     </Border.Effect>
-
                     <TextBox x:Name="txtEditorial"
-                 Height="35"
-                 FontSize="14"
-                 Padding="10"
-                 BorderThickness="0"
-                 Background="Transparent" Text="Editorial del Libro"/>
+                     Height="35"
+                     FontSize="14"
+                     Padding="10"
+                     BorderThickness="0"
+                     Background="Transparent"
+                     Text="Editorial del libro..."
+                     Foreground="Gray"
+                     GotFocus="TextBox_GotFocus"
+                     LostFocus="TextBox_LostFocus"/>        
                 </Border>
-
-
-
             </StackPanel>
-
-
-
             <StackPanel Grid.Column="1" Margin="10">
-
                 <TextBlock Text="Stock"
                            FontWeight="ExtraBlack"
                            FontSize="18"
                            Margin="0,5,0,0"/>
-
                 <Border
                      Background="White"
                      BorderBrush="#BFC9D1"
                      BorderThickness="0,1,1,1" CornerRadius="12,12,12,12">
-
                     <Border.Effect>
                         <DropShadowEffect BlurRadius="12"
                            ShadowDepth="10"
                            Opacity="0.3"/>
                     </Border.Effect>
-
                     <TextBox x:Name="txtStock"
-                         Height="35"
-                         FontSize="14"
-                         Background="Transparent"
-                         BorderThickness="0"
-                         Padding="10" Text="Cantidad en Stock"/>
+                     Height="35"
+                     FontSize="14"
+                     Background="Transparent"
+                     BorderThickness="0"
+                     Padding="10"
+                     Text="Cantidad en stock..."
+                     Foreground="Gray"
+                     GotFocus="TextBox_GotFocus"
+                     LostFocus="TextBox_LostFocus"/>    
                 </Border>
-
-
-
                 <TextBlock Text="Año de publicación"
                            FontWeight="ExtraBlack"
                            FontSize="18"
@@ -203,26 +176,21 @@
                     Background="White"
                     BorderBrush="#BFC9D1"
                     BorderThickness="1">
-
                     <Border.Effect>
                         <DropShadowEffect BlurRadius="12"
                           ShadowDepth="10"
                           Opacity="0.3"/>
                     </Border.Effect>
-
-
                     <DatePicker x:Name="dtaAnio"
                         Height="35"
                         FontSize="14"
                         BorderThickness="0"
                         Background="Transparent"/>
                 </Border>
-
                 <TextBlock Text="Descripción"
                            FontWeight="ExtraBlack"
                            FontSize="18"
                            Margin="0,20,0,5"/>
-
                 <Border
                     Background="White"
                     BorderBrush="#BFC9D1"
@@ -232,27 +200,25 @@
                            ShadowDepth="10"
                            Opacity="0.3"/>
                     </Border.Effect>
-
                     <TextBox x:Name="txtDescripcion"
-                         FontSize="14"
-                         Height="132"
-                         Padding="10"
-                         TextWrapping="Wrap"
-                         Background="Transparent"
-                         BorderThickness="0"
-                         AcceptsReturn="True" Text="Resumen de la Trama y detalles..." />
+                     FontSize="14"
+                     Height="132"
+                     Padding="10"
+                     TextWrapping="Wrap"
+                     Background="Transparent"
+                     BorderThickness="0"
+                     AcceptsReturn="True"
+                     Text="Resumen de la trama y detalles..."
+                     Foreground="Gray"
+                     GotFocus="TextBox_GotFocus"
+                     LostFocus="TextBox_LostFocus"/>
                 </Border>
-
             </StackPanel>
-
         </Grid>
-
-
         <StackPanel Grid.Row="1"
                     Orientation="Horizontal"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top" Margin="162,425,0,0" Grid.RowSpan="2">
-
             <Button Width="140"
                 Height="45"
                 Margin="10"
@@ -263,34 +229,21 @@
                 BorderThickness="0"
                 Click="GuardarLibro"
                 Content="Guardar">
-
-
                 <Button.Template>
-
                     <ControlTemplate TargetType="Button">
-
                         <Border Background="{TemplateBinding Background}"
                     CornerRadius="15">
-
                             <Border.Effect>
-
                                 <DropShadowEffect BlurRadius="8"
                                       ShadowDepth="10"
                                       Opacity="0.55"/>
-
                             </Border.Effect>
-
                             <ContentPresenter HorizontalAlignment="Center"
                                   VerticalAlignment="Center"/>
-
                         </Border>
-
                     </ControlTemplate>
-
                 </Button.Template>
-
             </Button>
-
             <Button Content="LIBROS (BODEGA)"
                 Width="140"
                 Height="45"
@@ -301,36 +254,21 @@
                 Foreground="White"
                 BorderThickness="0"
                 Click="Bodega">
-
-                <Button.Template>
-
+            <Button.Template>
                     <ControlTemplate TargetType="Button">
-
                         <Border Background="{TemplateBinding Background}"
                        CornerRadius="15">
-
                             <Border.Effect>
-
                                 <DropShadowEffect BlurRadius="8"
                               ShadowDepth="10"
                               Opacity="0.55"/>
-
                             </Border.Effect>
-
                             <ContentPresenter HorizontalAlignment="Center"
                         VerticalAlignment="Center"/>
-
                         </Border>
-
                     </ControlTemplate>
-
                 </Button.Template>
-
             </Button>
-
-            
-
         </StackPanel>
-
     </Grid>
 </Window> 
