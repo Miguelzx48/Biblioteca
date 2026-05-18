@@ -53,7 +53,7 @@ namespace Biblioteca.Views
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
             string codigo = txtCodigo.Text;
-            string nuevaPassword = txtPassword.Text;
+            string nuevaPassword = txtPassword.Password;
             string resultado = loginService.CambiarPassword(codigo, email, nuevaPassword);
             lblMensajeRecuperar.Content = resultado;
             btnRecuperar.IsEnabled = false;

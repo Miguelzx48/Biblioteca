@@ -3,7 +3,7 @@ using System;
 using System.Windows;
 
 
-namespace Biblioteca.Views.Usuario
+namespace Biblioteca.Views.Windows
 {
     /// <summary>
     /// Lógica de interacción para CrearUsuario.xaml
@@ -14,7 +14,14 @@ namespace Biblioteca.Views.Usuario
         Models.Usuario usuario;
         int tipoUsuario;
         bool esEdicion = false;
-  
+
+        public CrearUsuario()
+        {
+            InitializeComponent();
+            controller = new UsuarioController();
+            Title = "Crear Usuario";
+        }
+
         public CrearUsuario(int tipousuario)
         {
             InitializeComponent();

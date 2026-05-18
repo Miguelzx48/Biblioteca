@@ -39,22 +39,46 @@ namespace Biblioteca.Db
         public LibroDb() { }
         public void Actualizar(libro libro)
         {
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            using (MySqlConnection conn =
+                   new MySqlConnection(connectionString))
             {
                 conn.Open();
+
                 string query = @"
-                    UPDATE Libros SET Stock = @stock, Descripcion = @descripcion     
-                    WHERE IdLibro = @idLibro";    
-                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+        UPDATE Libros 
+        SET 
+            Nombre = @nombre,
+            Autor = @autor,
+            Stock = @stock,
+            Descripcion = @descripcion
+        WHERE IdLibro = @idLibro";
+
+                using (MySqlCommand cmd =
+                       new MySqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@stock",libro.Stock);
-                    cmd.Parameters.AddWithValue("@descripcion", libro.Descripcion);
-                    cmd.Parameters.AddWithValue("@idLibro", libro.IdLibro);
-                    cmd.ExecuteNonQuery();
+                    cmd.Parameters.AddWithValue(
+                        "@nombre", libro.Nombre);
+
+                    cmd.Parameters.AddWithValue(
+                        "@autor", libro.Autor);
+
+                    cmd.Parameters.AddWithValue(
+                        "@stock", libro.Stock);
+
+                    cmd.Parameters.AddWithValue(
+                        "@descripcion", libro.Descripcion);
+
+                    cmd.Parameters.AddWithValue(
+                        "@idLibro", libro.IdLibro);
+
+                    int filas = cmd.ExecuteNonQuery();
+
+                    MessageBox.Show(
+                        "Filas actualizadas: " + filas);
                 }
             }
         }
-        
+
         public void Eliminar(int idLibro)
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))
