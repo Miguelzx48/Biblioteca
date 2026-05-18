@@ -6,8 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
-
-
 namespace Biblioteca.Db
 {
     public class PrestamoDb
@@ -37,21 +35,13 @@ namespace Biblioteca.Db
                 }
             }
         }
-
         public void Actualizar(Prestamo prestamo)
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
-
-                string query = @"
-            UPDATE Prestamos 
-            SET Estado = @estado,
-                Multa = @multa,
-                CantidadDiasMora = @cantidadDiasMora,
-                FechaRealDevolucion = @fechaRealDevolucion
-            WHERE IdPrestamo = @idPrestamo";
-
+                string query = @"UPDATE Prestamos SET Estado = @estado,Multa = @multa,CantidadDiasMora = @cantidadDiasMora,FechaRealDevolucion = @fechaRealDevolucion
+                                WHERE IdPrestamo = @idPrestamo";
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@estado", prestamo.Estado);
@@ -59,14 +49,10 @@ namespace Biblioteca.Db
                     cmd.Parameters.AddWithValue("@cantidadDiasMora", prestamo.CantidadDiasMora);
                     cmd.Parameters.AddWithValue("@fechaRealDevolucion", prestamo.FechaRealDevolucion);
                     cmd.Parameters.AddWithValue("@idPrestamo", prestamo.IdPrestamo);
-
                     cmd.ExecuteNonQuery();
                 }
             }
         }
-     
-
-        
         public void Eliminar(int idLibro)
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))

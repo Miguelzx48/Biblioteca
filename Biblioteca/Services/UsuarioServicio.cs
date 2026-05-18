@@ -29,22 +29,18 @@ namespace Biblioteca.Services
         {
             usuarioDb.CrearUsuario(usuario);
         }
-
         public List<Usuario> ObtenerTodos()
         {
             return usuarioDb.Obtener();  
         }
-
         public Usuario ObtenerPorId(int idUsuario)
         {
             return usuarioDb.ObtenerPorId(idUsuario);
         }
-
         public void Actualizar(Usuario usuario)
         {
             usuarioDb.Actualizar(usuario);
         }
-
         public void Eliminar(int idUsuario)
         {
             usuarioDb.Eliminar(idUsuario);

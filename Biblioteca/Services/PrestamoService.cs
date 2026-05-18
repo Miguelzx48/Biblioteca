@@ -6,7 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
-
 namespace Biblioteca.Services
 {
     public class PrestamoService
@@ -21,10 +20,5 @@ namespace Biblioteca.Services
             PrestamoDb prestamoDb = new PrestamoDb();
             prestamoDb.Actualizar(prestamo);
         }
-        
-
-
-
-
     }
 }
