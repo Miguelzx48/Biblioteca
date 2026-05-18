@@ -1,12 +1,9 @@
 ﻿using Biblioteca.Db;
 using Biblioteca.Models;
 using Biblioteca.Services;
-<<<<<<< HEAD
-=======
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using Microsoft.Win32;
->>>>>>> maicol
 using System;
 using System.Collections.Generic;
 using System.IO;
