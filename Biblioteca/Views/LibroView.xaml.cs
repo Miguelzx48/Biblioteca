@@ -4,23 +4,22 @@ using System;
 using System.Windows;
 using MySql.Data.MySqlClient;
 using Biblioteca.Views;
+using System.Windows.Controls;
 namespace Biblioteca.Views
 
 {
-    public partial class LibroView : Window
+    public partial class LibroView : UserControl
     {
-        public LibroView()
+        public event Action<UserControl> CambiarVista;
+
+        private Models.Usuario _usuario;
+
+        public LibroView(Models.Usuario usuario)
         {
             InitializeComponent();
+            _usuario = usuario;
         }
 
-       
-        private void Bodega(object sender, RoutedEventArgs e)
-        {
-            ListaLibrosView ventana = new ListaLibrosView();
-
-            ventana.Show();
-        }
         private void GuardarLibro(object sender, RoutedEventArgs e)
         {
             try

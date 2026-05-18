@@ -1,5 +1,6 @@
 ﻿using Biblioteca.Controllers;
-using Biblioteca.Views.Usuario;
+using Biblioteca.Models;
+using Biblioteca.Views.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,9 +41,12 @@ namespace Biblioteca.Views
             }
             else
             {
-                var usuarioView = new CrearUsuario(usuario, 0);
-                usuarioView.Show();
-            }
+                usuario.Activo = false;
+
+                var main = new MainWindow(usuario);
+                main.Show();
+                this.Close();
+            }   
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

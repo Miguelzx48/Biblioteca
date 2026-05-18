@@ -2,13 +2,15 @@
 using Biblioteca.Services;
 using System;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace Biblioteca.Views
 {
-    public partial class ActualizarLibroView : Window
+    public partial class ActualizarLibroView : UserControl
     {
-        libro libroActual;
+        public event Action LibroActualizado;
 
+        libro libroActual;
         public ActualizarLibroView(libro libroSeleccionado)
         {
             InitializeComponent();
@@ -18,6 +20,8 @@ namespace Biblioteca.Views
             txtNombre.Text = libroActual.Nombre;
             txtAutor.Text = libroActual.Autor;
             txtStock.Text = libroActual.Stock.ToString();
+            txtCategoria.Text = libroActual.Categoria;
+            txtEditorial.Text = libroActual.Editorial;
             txtDescripcion.Text = libroActual.Descripcion;
         }
 
@@ -34,6 +38,8 @@ namespace Biblioteca.Views
             {
                 libroActual.Nombre = txtNombre.Text;
                 libroActual.Autor = txtAutor.Text;
+                libroActual.Editorial = txtEditorial.Text;
+                libroActual.Categoria = txtCategoria.Text;
                 libroActual.Stock = Convert.ToInt32(txtStock.Text);
                 libroActual.Descripcion = txtDescripcion.Text;
 
@@ -43,8 +49,25 @@ namespace Biblioteca.Views
 
                 MessageBox.Show("Libro actualizado correctamente");
 
-                this.Close();
+                LibroActualizado?.Invoke();
             }
         }
+
+        private void EliminarLibro(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult resultado = MessageBox.Show(
+                "¿Seguro desea eliminar este libro?",
+                "Confirmación",
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Warning);
+            if (resultado == MessageBoxResult.Yes)
+            {
+                libroService servicio = new libroService();
+                servicio.Eliminar(libroActual.IdLibro);
+                MessageBox.Show("Libro eliminado correctamente");
+                LibroActualizado?.Invoke();
+            }
+        }
+
     }
 }

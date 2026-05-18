@@ -54,7 +54,10 @@ namespace Biblioteca.Views
         {
             string codigo = txtCodigo.Text;
             string nuevaPassword = txtPassword.Password;
+<<<<<<< HEAD:Biblioteca/Views/OlvidoPassword.xaml.cs
 
+=======
+>>>>>>> f300982aa818b760cc0d2419cbcd3a1f54a7c4e2:Biblioteca/Views/Windows/OlvidoPassword.xaml.cs
             string resultado = loginService.CambiarPassword(codigo, email, nuevaPassword);
 
             lblMensajeRecuperar.Content = resultado;
