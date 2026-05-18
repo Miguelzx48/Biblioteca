@@ -76,10 +76,6 @@ namespace Biblioteca.Db
                 }
             }
         }
-<<<<<<< HEAD
-
-=======
->>>>>>> maicol
         public void Eliminar(int idLibro)
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))

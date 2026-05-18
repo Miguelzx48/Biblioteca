@@ -2,14 +2,8 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Height="500"
-<<<<<<< HEAD
         Background="White"
         Width="500">
-
-=======
-        Width="500"
-        WindowStartupLocation="CenterScreen">
->>>>>>> maicol
     <Grid Margin="20">
         <StackPanel>
             <TextBlock Text="Nombre"/>
@@ -17,15 +11,10 @@
             <TextBlock Text="Autor"
                        Margin="0,10,0,0"/>
             <TextBox x:Name="txtAutor"/>
-<<<<<<< HEAD
-
             <TextBlock Text="Categoria"
-=======
-            <TextBlock Text="Stock"
->>>>>>> maicol
                        Margin="0,10,0,0"/>
             <TextBox x:Name="txtCategoria"/>
-            
+
             <TextBlock Text="Editorial"/>
             <TextBox x:Name="txtEditorial"/>
 
@@ -39,19 +28,10 @@
             <Button Content="Actualizar"
                     Height="35"
                     Click="ActualizarLibro"/>
-<<<<<<< HEAD
             <Button Content="Eliminar"
                 Height="35"
                 Margin="0,10,0,0"
                 Click="EliminarLibro"/>
-
-=======
->>>>>>> maicol
         </StackPanel>
     </Grid>
-<<<<<<< HEAD
-
 </UserControl>
-=======
-</Window>
->>>>>>> maicol

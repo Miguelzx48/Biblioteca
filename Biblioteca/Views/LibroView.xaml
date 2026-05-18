@@ -52,23 +52,15 @@
                     BorderThickness="1"
                     Margin="0,0,0,0">
                     <Border.Effect>
-                <DropShadowEffect BlurRadius="12"
+                        <DropShadowEffect BlurRadius="12"
                   ShadowDepth="10"
                   Opacity="0.3"/>
-                  </Border.Effect>
-                  <TextBox x:Name="txtNombre"
+                    </Border.Effect>
+                    <TextBox x:Name="txtNombre"
                      Height="34"
                      Padding="10"
                      BorderThickness="0"
-<<<<<<< HEAD
                      Background="Transparent" />
-=======
-                     Background="Transparent"
-                     Text="Título del libro..."
-                     Foreground="Gray"
-                     GotFocus="TextBox_GotFocus"
-         LostFocus="TextBox_LostFocus"/>
->>>>>>> maicol
                 </Border>
                 <TextBlock Text="Autor"
                    FontWeight="ExtraBlack"
@@ -85,21 +77,10 @@
                           Opacity="0.3"/>
                     </Border.Effect>
                     <TextBox x:Name="txtAutor"
-<<<<<<< HEAD
                      Height="35"
                      Padding="10"
                      BorderThickness="0"
                      Background="Transparent"/>
-=======
-                        Height="35"
-                        Padding="10"
-                        BorderThickness="0"
-                        Background="Transparent"
-                        Text="Ingrese el autor..."
-                        Foreground="Gray"
-                        GotFocus="TextBox_GotFocus"
-                        LostFocus="TextBox_LostFocus"/>         
->>>>>>> maicol
                 </Border>
                 <TextBlock
                    Text="Categoria"
@@ -117,21 +98,10 @@
                           Opacity="0.3"/>
                     </Border.Effect>
                     <TextBox x:Name="txtCategoria"
-<<<<<<< HEAD
                          Height="35"
                          Padding="10"
                          BorderThickness="0"
                          Background="Transparent"/>
-=======
-                 Height="35"
-                 Padding="10"
-                 BorderThickness="0"
-                 Background="Transparent"
-                 Text="Ingrese la categoría..."
-                 Foreground="Gray"
-                 GotFocus="TextBox_GotFocus"
-                 LostFocus="TextBox_LostFocus"/>
->>>>>>> maicol
                 </Border>
                 <TextBlock Text="Editorial"
                FontWeight="ExtraBlack"
@@ -147,23 +117,11 @@
                           Opacity="0.3"/>
                     </Border.Effect>
                     <TextBox x:Name="txtEditorial"
-<<<<<<< HEAD
                  Height="35"
                  FontSize="14"
                  Padding="10"
                  BorderThickness="0"
                  Background="Transparent"/>
-=======
-                     Height="35"
-                     FontSize="14"
-                     Padding="10"
-                     BorderThickness="0"
-                     Background="Transparent"
-                     Text="Editorial del libro..."
-                     Foreground="Gray"
-                     GotFocus="TextBox_GotFocus"
-                     LostFocus="TextBox_LostFocus"/>        
->>>>>>> maicol
                 </Border>
             </StackPanel>
             <StackPanel Grid.Column="1" Margin="10">
@@ -181,23 +139,11 @@
                            Opacity="0.3"/>
                     </Border.Effect>
                     <TextBox x:Name="txtStock"
-<<<<<<< HEAD
                          Height="35"
                          FontSize="14"
                          Background="Transparent"
                          BorderThickness="0"
                          Padding="10"/>
-=======
-                     Height="35"
-                     FontSize="14"
-                     Background="Transparent"
-                     BorderThickness="0"
-                     Padding="10"
-                     Text="Cantidad en stock..."
-                     Foreground="Gray"
-                     GotFocus="TextBox_GotFocus"
-                     LostFocus="TextBox_LostFocus"/>    
->>>>>>> maicol
                 </Border>
                 <TextBlock Text="Año de publicación"
                            FontWeight="ExtraBlack"
@@ -232,7 +178,6 @@
                            Opacity="0.3"/>
                     </Border.Effect>
                     <TextBox x:Name="txtDescripcion"
-<<<<<<< HEAD
                          FontSize="14"
                          Height="132"
                          Padding="10"
@@ -240,31 +185,13 @@
                          Background="Transparent"
                          BorderThickness="0"
                          AcceptsReturn="True" />
-=======
-                     FontSize="14"
-                     Height="132"
-                     Padding="10"
-                     TextWrapping="Wrap"
-                     Background="Transparent"
-                     BorderThickness="0"
-                     AcceptsReturn="True"
-                     Text="Resumen de la trama y detalles..."
-                     Foreground="Gray"
-                     GotFocus="TextBox_GotFocus"
-                     LostFocus="TextBox_LostFocus"/>
->>>>>>> maicol
                 </Border>
             </StackPanel>
         </Grid>
         <StackPanel Grid.Row="1"
                     Orientation="Horizontal"
                     HorizontalAlignment="Left"
-<<<<<<< HEAD
                     VerticalAlignment="Top" Margin="320,425,0,0" Grid.RowSpan="2">
-
-=======
-                    VerticalAlignment="Top" Margin="162,425,0,0" Grid.RowSpan="2">
->>>>>>> maicol
             <Button Width="140"
                 Height="45"
                 Margin="10"
@@ -290,9 +217,6 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
-<<<<<<< HEAD
-
-=======
             <Button Content="LIBROS (BODEGA)"
                 Width="140"
                 Height="45"
@@ -303,7 +227,7 @@
                 Foreground="White"
                 BorderThickness="0"
                 Click="Bodega">
-            <Button.Template>
+                <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <Border Background="{TemplateBinding Background}"
                        CornerRadius="15">
@@ -318,7 +242,6 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
->>>>>>> maicol
         </StackPanel>
     </Grid>
 </UserControl> 

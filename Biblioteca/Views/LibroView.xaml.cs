@@ -4,11 +4,9 @@ using Biblioteca.Views;
 using MySql.Data.MySqlClient;
 using System;
 using System.Windows;
-<<<<<<< HEAD
 using MySql.Data.MySqlClient;
 using Biblioteca.Views;
 using System.Windows.Controls;
-=======
 using System.Windows.Controls;
 using System.Windows.Media;
 using iTextSharp.text;
@@ -16,7 +14,6 @@ using iTextSharp.text.pdf;
 using Microsoft.Win32;
 using System.IO;
 
->>>>>>> maicol
 namespace Biblioteca.Views
 
 
@@ -89,17 +86,14 @@ namespace Biblioteca.Views
                 txt.Foreground = Brushes.Gray;
             }
         }
-
-
-<<<<<<< HEAD
-=======
         private void Bodega(object sender, RoutedEventArgs e)
         {
-            ListaLibrosView ventana = new ListaLibrosView();
+            Usuario usuario = new Usuario();
+            ListaLibrosView ventana = new ListaLibrosView(usuario);
 
-            ventana.Show();
+            //ventana.Show();
         }
->>>>>>> maicol
+
         private void GuardarLibro(object sender, RoutedEventArgs e)
         {
             try

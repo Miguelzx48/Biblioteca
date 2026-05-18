@@ -2,20 +2,15 @@
 using Biblioteca.Services;
 using System;
 using System.Windows;
-<<<<<<< HEAD
 using System.Windows.Controls;
 
-=======
->>>>>>> maicol
+
 namespace Biblioteca.Views
 {
     public partial class ActualizarLibroView : UserControl
     {
-<<<<<<< HEAD
         public event Action LibroActualizado;
 
-=======
->>>>>>> maicol
         libro libroActual;
         public ActualizarLibroView(libro libroSeleccionado)
         {
@@ -46,12 +41,8 @@ namespace Biblioteca.Views
                 libroService servicio = new libroService();
                 servicio.Actualizar(libroActual);
                 MessageBox.Show("Libro actualizado correctamente");
-<<<<<<< HEAD
 
                 LibroActualizado?.Invoke();
-=======
-                this.Close();
->>>>>>> maicol
             }
         }
 
