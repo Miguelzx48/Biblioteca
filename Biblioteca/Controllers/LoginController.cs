@@ -16,10 +16,16 @@ namespace Biblioteca.Controllers
             return service.Login(email, password);
         }
 
-        public void CambiarPassword(int idUsuario, string password)
+        public string RecuperarPassword(string email)
         {
             LoginService service = new LoginService();
-            service.CambiarPassword(idUsuario, password);
+            return service.RecuperarPassword(email);
+        }
+
+        public string CambiarPassword(string codigoRecuperacion, string email, string password)
+        {
+            LoginService service = new LoginService();
+            return service.CambiarPassword(codigoRecuperacion, email, password);
         }
     }
 }
