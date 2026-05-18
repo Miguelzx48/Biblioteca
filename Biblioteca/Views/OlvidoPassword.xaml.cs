@@ -19,7 +19,7 @@ namespace Biblioteca.Views
     /// </summary>
     public partial class OlvidoPassword : Window
     {
-        private readonly Services.LoginService loginService ;
+        private readonly Services.LoginService loginService;
         private string email;
         public OlvidoPassword()
         {
@@ -33,7 +33,7 @@ namespace Biblioteca.Views
             string resultado = loginService.RecuperarPassword(email);
             lblMensaje.Content = resultado;
 
-            if(resultado == "Se ha enviado un correo con el código de recuperación.")
+            if (resultado == "Se ha enviado un correo con el código de recuperación.")
             {
                 HabilitarControles();
             }
@@ -53,10 +53,13 @@ namespace Biblioteca.Views
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
             string codigo = txtCodigo.Text;
-            string nuevaPassword = txtPassword.Text;
+            string nuevaPassword = txtPassword.Password;
+
             string resultado = loginService.CambiarPassword(codigo, email, nuevaPassword);
+
             lblMensajeRecuperar.Content = resultado;
+
             btnRecuperar.IsEnabled = false;
         }
     }
-}
+    }
