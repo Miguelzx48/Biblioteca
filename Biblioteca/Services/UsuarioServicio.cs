@@ -19,15 +19,19 @@ namespace Biblioteca.Services
 
         public void ValidarAdminDefault()
         {
-            if (!usuarioDb.ExisteUsuarioAdminDefault())
+            if (!usuarioDb.ExisteCorreo("admin@biblioteca.com"))
             {
                 usuarioDb.CrearUsuarioAdminDefault();
             }
         }
 
-        public void Crear(Usuario usuario)
+        public string Crear(Usuario usuario)
         {
-            usuarioDb.CrearUsuario(usuario);
+            if (usuarioDb.ExisteCorreo(usuario.Email))
+            {
+                return "Ya existe una cuenta con el correo electrónico proporcionado.";
+            }
+            return usuarioDb.CrearUsuario(usuario);
         }
         public List<Usuario> ObtenerTodos()
         {
@@ -37,9 +41,9 @@ namespace Biblioteca.Services
         {
             return usuarioDb.ObtenerPorId(idUsuario);
         }
-        public void Actualizar(Usuario usuario)
+        public string Actualizar(Usuario usuario)
         {
-            usuarioDb.Actualizar(usuario);
+            return usuarioDb.Actualizar(usuario);
         }
         public void Eliminar(int idUsuario)
         {

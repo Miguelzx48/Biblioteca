@@ -41,8 +41,6 @@ namespace Biblioteca.Views
             }
             else
             {
-                usuario.Activo = false;
-
                 var main = new MainWindow(usuario);
                 main.Show();
                 this.Close();

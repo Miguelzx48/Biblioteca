@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Biblioteca.Views.Windows"
         mc:Ignorable="d"
-        Title="CrearUsuario" Height="400" Width="500">
+        Title="CrearUsuario" Height="450" Width="500">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -16,21 +16,22 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Margin="30 30 30 5">
-            <TextBlock Text="Email:"/>
+            <TextBlock Text="Email*:"/>
             <TextBox Name="txtEmail" />
         </StackPanel>
         <StackPanel Grid.Row="1" Margin="30,5">
-            <TextBlock Text="Contraseña:"/>
+            <TextBlock Text="Contraseña*:"/>
             <PasswordBox  Name="txtPassword" />
         </StackPanel>
         <StackPanel Grid.Row="2" Margin="30,5">
-            <TextBlock Text="Nombres:"/>
+            <TextBlock Text="Nombres*:"/>
             <TextBox Name="txtNombres" />
         </StackPanel>
         <StackPanel Grid.Row="3" Margin="30,5">
-            <TextBlock Text="Apellidos:"/>
+            <TextBlock Text="Apellidos*:"/>
             <TextBox Name="txtApellidos" />
         </StackPanel>
         <StackPanel Grid.Row="4" Margin="30,5">
@@ -38,14 +39,17 @@
             <TextBox Name="txtTelefono" />
         </StackPanel>
         <StackPanel Grid.Row="5" Margin="30,5">
-            <TextBlock Text="Fecha de Nacimiento:"/>
+            <TextBlock Text="Fecha de Nacimiento*:"/>
             <DatePicker Name="dtpckFechaNacimiento" />
         </StackPanel>
-        <StackPanel Grid.Row="6" Margin="30,5">
+        <StackPanel Name="spActivo" Grid.Row="6" Margin="30,5" Visibility="Hidden">
             <TextBlock Text="Activo:"/>
-            <CheckBox Name="chkActivo" Visibility="Hidden"/>
+            <CheckBox Name="chkActivo" />
         </StackPanel>
-        <StackPanel Grid.Row="7" Margin="30, 5">
+        <StackPanel Grid.Row="7" Margin="30,5" >
+            <Label Name="lblResponse"/>
+        </StackPanel>
+        <StackPanel Grid.Row="8" Margin="30, 5">
             <Button Content="Guardar" Click="Button_Click"/>
         </StackPanel>
     </Grid>
