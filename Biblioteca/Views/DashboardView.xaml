@@ -17,9 +17,6 @@
                        VerticalAlignment="Center"/>
 
         </Grid>
-
-        <!-- CONTENIDO -->
-
         <Grid Grid.Row="1"
               Margin="25">
 
@@ -113,7 +110,6 @@
 
             </Border>
 
-            <!-- PANEL DERECHO -->
 
             <StackPanel Grid.Column="1">
 

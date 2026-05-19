@@ -11,7 +11,6 @@ namespace Biblioteca.Views
         {
             InitializeComponent();
         }
-
         private void Guardar_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -21,20 +20,12 @@ namespace Biblioteca.Views
                 prestamo.IdPrestamo = Convert.ToInt32(txtIdPrestamo.Text);
                 prestamo.IdUsuario = Convert.ToInt32(txtIdUsuario.Text);
                 prestamo.IdLibro = Convert.ToInt32(txtIdLibro.Text);
-
-               
-               
-
                 prestamo.FechaPrestamo = DateTime.Now;
                 prestamo.FechaEstimadaDevolucion = DateTime.Now.AddDays(7);
                 prestamo.FechaRealDevolucion = DateTime.Now;
-
                 prestamo.CantidadDiasMora = 0;
-
                 PrestamoDb db = new PrestamoDb();
-
                 db.CrearPrestamo(prestamo);
-
                 MessageBox.Show("Prestamo guardado");
             }
             catch (Exception ex)

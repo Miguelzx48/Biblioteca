@@ -15,9 +15,7 @@ namespace Biblioteca.Views
         public DetalleLibroView(libro libro, Usuario usuario)
         {
             InitializeComponent();
-
             _usuario = usuario;
-
             txtNombre.Text = libro.Nombre;
             txtAutor.Text = libro.Autor;
             txtCategoria.Text = libro.Categoria;
@@ -32,7 +30,6 @@ namespace Biblioteca.Views
                     new Uri(libro.Imagen));
             }
         }
-
         private void Cerrar_Click(object sender, RoutedEventArgs e)
         {
             ListaLibrosView vista = new ListaLibrosView(_usuario);

@@ -123,7 +123,7 @@
                                     </Border>
                                 </ControlTemplate>
                             </Button.Template>
-                            
+
 
                         </Button>
                         <TextBlock HorizontalAlignment="Center"
@@ -133,7 +133,7 @@
                         <Hyperlink Click="Hyperlink_Click"
                                        Foreground="#FF0079FF">
                                 ¿Olvidaste tu contraseña?
-                         </Hyperlink>    
+                         </Hyperlink>
 
                         </TextBlock>
 

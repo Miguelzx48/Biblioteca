@@ -13,7 +13,6 @@
             <RowDefinition Height="90"/>
         </Grid.RowDefinitions>
 
-        <!-- ENCABEZADO -->
         <Border Grid.Row="0" Margin="0,-8,0,8">
             <Border.Background>
                 <LinearGradientBrush EndPoint="0.5,1"
@@ -31,7 +30,6 @@
                        VerticalAlignment="Center"/>
         </Border>
 
-        <!-- CONTENIDO -->
         <Grid Grid.Row="1" Margin="30">
 
             <Grid.ColumnDefinitions>
@@ -39,7 +37,6 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <!-- IZQUIERDA -->
             <StackPanel Grid.Column="0" Margin="10">
 
 
@@ -81,7 +78,6 @@
 
             </StackPanel>
 
-            <!-- DERECHA -->
             <StackPanel Grid.Column="1" Margin="10">
 
                 <TextBlock Text="Stock"
@@ -105,8 +101,6 @@
                 <TextBlock Text="Descripción"
                            FontWeight="Bold"
                            FontSize="18"/>
-                
-
 
                 <TextBox x:Name="txtDescripcion"
                          Height="140"
@@ -120,13 +114,9 @@
                        Margin="0,10"
                        Stretch="Fill"/>
 
-
             </StackPanel>
-            
-
         </Grid>
 
-        <!-- BOTÓN -->
         <StackPanel Grid.Row="2"
                     Orientation="Horizontal"
                     HorizontalAlignment="Center"
@@ -140,11 +130,6 @@
                     FontWeight="Bold"
                     BorderThickness="0"
                     Click="Cerrar_Click">
-              
-                
-                
-                
-
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <Border Background="{TemplateBinding Background}"
@@ -155,16 +140,12 @@
                                                   ShadowDepth="4"
                                                   Opacity="0.4"/>
                             </Border.Effect>
-
                             <ContentPresenter HorizontalAlignment="Center"
                                               VerticalAlignment="Center"/>
                         </Border>
                     </ControlTemplate>
                 </Button.Template>
-
             </Button>
-
         </StackPanel>
-
     </Grid>
 </UserControl>
