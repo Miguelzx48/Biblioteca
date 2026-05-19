@@ -17,6 +17,7 @@ namespace Biblioteca.Models
         public int Stock { get; set; }
         public string Descripcion { get; set; }
         public int AnioPublicacion { get; set; }
+        public string Imagen { get; set; }
         public libro() { }
         public libro(int idLibro , string nombre , string autor ,string categoria, string editorial , int stock , string descripcion , int anioPublicacion )
         {

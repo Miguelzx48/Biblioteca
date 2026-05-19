@@ -1,6 +1,7 @@
 ﻿using Biblioteca.Db;
 using Biblioteca.Models;
 using Biblioteca.Services;
+using Biblioteca.Views;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using Microsoft.Win32;
@@ -56,7 +57,14 @@ namespace Biblioteca.Views
             }
             else
             {
-                MessageBox.Show("EXAMINAR: " + libroSeleccionado.Nombre);
+                var vista = new DetalleLibroView(libroSeleccionado, _usuario);
+
+                vista.CambiarVista += (nuevaVista) =>
+                {
+                    CambiarVista?.Invoke(nuevaVista);
+                };
+
+                CambiarVista?.Invoke(vista);
             }
         }
         private void TextBoxBuscar_GotFocus(object sender, RoutedEventArgs e)

@@ -1,17 +1,16 @@
 ﻿using Biblioteca.Db;
 using Biblioteca.Models;
-using System;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Media;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using Microsoft.Win32;
+using System;
 using System.IO;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace Biblioteca.Views
-
-
 {
     public partial class LibroView : UserControl
     {
@@ -19,11 +18,31 @@ namespace Biblioteca.Views
 
         private Models.Usuario _usuario;
 
+        // AQUI VA LA VARIABLE
+        private string rutaImagen = "";
+
         public LibroView(Models.Usuario usuario)
         {
             InitializeComponent();
             _usuario = usuario;
         }
+
+        // AQUI VA EL METODO
+        private void SeleccionarImagen(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+
+            open.Filter = "Imagenes|*.jpg;*.png;*.jpeg";
+
+            if (open.ShowDialog() == true)
+            {
+                rutaImagen = open.FileName;
+
+                imgLibro.Source = new BitmapImage(
+                    new Uri(rutaImagen));
+            }
+        }
+
         private void TextBox_GotFocus(object sender, RoutedEventArgs e)
         {
             TextBox txt = sender as TextBox;
@@ -34,6 +53,7 @@ namespace Biblioteca.Views
                 txt.Foreground = Brushes.Black;
             }
         }
+        
         private void RestaurarPlaceholders()
         {
             txtNombre.Text = "Título del libro...";
@@ -81,13 +101,7 @@ namespace Biblioteca.Views
                 txt.Foreground = Brushes.Gray;
             }
         }
-        private void Bodega(object sender, RoutedEventArgs e)
-        {
-            Usuario usuario = new Usuario();
-            ListaLibrosView ventana = new ListaLibrosView(usuario);
-
-            //ventana.Show();
-        }
+       
 
         private void GuardarLibro(object sender, RoutedEventArgs e)
         {
@@ -185,6 +199,7 @@ namespace Biblioteca.Views
                 libro.Stock = Convert.ToInt32(txtStock.Text);
                 libro.Descripcion = txtDescripcion.Text;
                 libro.AnioPublicacion = dtaAnio.SelectedDate?.Year ?? 0;
+                libro.Imagen = rutaImagen;
 
                 LibroDb db = new LibroDb();
 

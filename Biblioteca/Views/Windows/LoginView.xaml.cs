@@ -1,4 +1,5 @@
-﻿using Biblioteca.Controllers;
+﻿
+using Biblioteca.Controllers;
 using Biblioteca.Models;
 using Biblioteca.Views.Windows;
 using System;
@@ -34,29 +35,38 @@ namespace Biblioteca.Views
             string email = txtEmail.Text;
             string password = txtPassword.Password;
 
-            Models.Usuario usuario =  controller.Login(email, password);
-            if(usuario == null)
+            Models.Usuario usuario = controller.Login(email, password);
+            if (usuario == null)
             {
                 lblError.Content = "Usuario y/o contraseña incorrecta";
             }
             else
             {
+                usuario.Activo = false;
+
                 var main = new MainWindow(usuario);
                 main.Show();
                 this.Close();
-            }   
+            }
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             var crearCuenta = new CrearUsuario(0);
             crearCuenta.Show();
+            this.Close();
         }
 
         private void Hyperlink_Click(object sender, RoutedEventArgs e)
         {
             var olvidoPassword = new OlvidoPassword();
             olvidoPassword.Show();
+            this.Close();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

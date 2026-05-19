@@ -19,8 +19,8 @@ namespace Biblioteca.Db
             {
                 conn.Open();
                 string query = @"
-                    Insert INTO Libros ( Nombre , Autor , Categoria,  Editorial , Stock ,  Descripcion , AnioPublicacion)
-                    VALUES (@nombre ,@autor ,@categoria, @editorial,@stock ,@descripcion,@anioPublicacion)";
+                    Insert INTO Libros ( Nombre , Autor , Categoria,  Editorial , Stock ,  Descripcion , AnioPublicacion,Imagen)
+                    VALUES (@nombre ,@autor ,@categoria, @editorial,@stock ,@descripcion,@anioPublicacion,@imagen)";
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@nombre", libro.Nombre);
@@ -30,6 +30,7 @@ namespace Biblioteca.Db
                     cmd.Parameters.AddWithValue("@stock", libro.Stock);
                     cmd.Parameters.AddWithValue("@descripcion", libro.Descripcion);
                     cmd.Parameters.AddWithValue("@aniopublicacion", libro.AnioPublicacion);
+                    cmd.Parameters.AddWithValue("@imagen", libro.Imagen);
                     cmd.ExecuteNonQuery();
                 }
             }

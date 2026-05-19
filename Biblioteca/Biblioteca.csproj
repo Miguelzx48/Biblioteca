@@ -136,6 +136,9 @@
     <Compile Include="Views\ActualizarLibroView.xaml.cs">
       <DependentUpon>ActualizarLibroView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\DetalleLibroView.xaml.cs">
+      <DependentUpon>DetalleLibroView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\LibroView.xaml.cs">
       <DependentUpon>LibroView.xaml</DependentUpon>
     </Compile>
@@ -170,6 +173,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\ActualizarLibroView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DetalleLibroView.xaml">
+      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\LibroView.xaml">
@@ -229,6 +236,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Imagenes\book.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\arrow_16391328.png" />
+    <Resource Include="Imagenes\books_1307864.png" />
+    <Resource Include="Imagenes\financial-literacy_18253711.png" />
+    <Resource Include="Imagenes\manager_4395949.png" />
+    <Resource Include="Imagenes\pngegg.png" />
+    <Resource Include="Imagenes\reading_10368713.png" />
+    <Resource Include="Imagenes\statisctics_12254889.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
