@@ -7,8 +7,11 @@ using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
+using System.Linq;
 
 namespace Biblioteca.Views
 {
@@ -24,7 +27,7 @@ namespace Biblioteca.Views
 
         public string ColorBoton =>
             _usuario?.TipoUsuario == 1 ? "Blue" : "Green";
-
+        private List<libro> listaOriginal;
         public ListaLibrosView(Models.Usuario usuario)
         {
             InitializeComponent();
@@ -33,6 +36,11 @@ namespace Biblioteca.Views
 
             DataContext = this;
 
+            Loaded += ListaLibrosView_Loaded;
+        }
+      
+        private void ListaLibrosView_Loaded(object sender, RoutedEventArgs e)
+        {
             CargarLibros();
         }
 
@@ -51,10 +59,51 @@ namespace Biblioteca.Views
                 MessageBox.Show("EXAMINAR: " + libroSeleccionado.Nombre);
             }
         }
+        private void TextBoxBuscar_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (txtBuscar.Text == "Buscar libro...")
+            {
+                txtBuscar.Text = "";
+                txtBuscar.Foreground = Brushes.Black;
+            }
+        }
 
+        private void TextBoxBuscar_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtBuscar.Text))
+            {
+                txtBuscar.Text = "Buscar libro...";
+                txtBuscar.Foreground = Brushes.Gray;
+            }
+        }
+        private void txtBuscar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (dgLibros == null || listaOriginal == null)
+                return;
+
+            string texto = txtBuscar.Text.ToLower();
+
+            if (string.IsNullOrWhiteSpace(texto) || texto == "buscar libro...")
+            {
+                dgLibros.ItemsSource = listaOriginal;
+                return;
+            }
+
+            var filtrados = listaOriginal.Where(l =>
+                l.Nombre.ToLower().Contains(texto) ||
+                l.Autor.ToLower().Contains(texto) ||
+                l.Categoria.ToLower().Contains(texto)
+            ).ToList();
+
+            dgLibros.ItemsSource = filtrados;
+        }
         private void CargarLibros()
         {
-            dgLibros.ItemsSource = servicio.ObtenerLibros();
+            var libros = servicio.ObtenerLibros();
+
+            listaOriginal = new List<libro>(libros);
+
+            dgLibros.ItemsSource = listaOriginal;
         }
 
         private void Eliminar(object sender, RoutedEventArgs e)
