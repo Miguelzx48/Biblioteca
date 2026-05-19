@@ -41,13 +41,16 @@ namespace Biblioteca.Views
 
         private void HabilitarControles()
         {
+            // MOSTRAR CONTROLES NUEVOS
+            stcLblRecuperar.Visibility = Visibility.Visible;
             stcCodigo.Visibility = Visibility.Visible;
             stcPassword.Visibility = Visibility.Visible;
-            stcLblRecuperar.Visibility = Visibility.Visible;
             stcBtnGuardar.Visibility = Visibility.Visible;
 
-            stcEmail.Visibility = Visibility.Hidden;
-            stcBtnRecuperar.Visibility = Visibility.Hidden;
+            // OCULTAR CONTROLES ANTERIORES
+            lblMensaje.Visibility = Visibility.Hidden;
+            stcEmail.Visibility = Visibility.Collapsed;
+            stcBtnRecuperar.Visibility = Visibility.Collapsed;
         }
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
@@ -59,7 +62,16 @@ namespace Biblioteca.Views
 
             lblMensajeRecuperar.Text = resultado;
 
-            btnRecuperar.IsEnabled = false;
+            MessageBox.Show(resultado);
+
+            if (resultado.Contains("exitosamente"))
+            {
+                LoginView login = new LoginView();
+
+                login.Show();
+
+                this.Close();
+            }
         }
     }
     }

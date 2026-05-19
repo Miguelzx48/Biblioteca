@@ -1,4 +1,5 @@
-﻿using Biblioteca.Db;
+﻿
+using Biblioteca.Db;
 using Biblioteca.Models;
 using System;
 using System.Collections.Generic;
@@ -21,17 +22,17 @@ namespace Biblioteca.Services
 
         public string CambiarPassword(string codigoRecuperacion, string email, string password)
         {
-            if(codigoRecuperacion != this.codigoRecuperacion)
+            if (codigoRecuperacion != this.codigoRecuperacion)
             {
                 return "El código de recuperación es incorrecto.";
             }
 
-            
-            if(DateTime.Now > expiracionCodigo)
+
+            if (DateTime.Now > expiracionCodigo)
             {
                 return "El código de recuperación ha expirado.";
             }
-            
+
             LoginDb db = new LoginDb();
             db.CambiarPassword(email, password);
 
@@ -61,7 +62,7 @@ namespace Biblioteca.Services
             };
 
             smtp.Send(mensaje);
-                       
+
             return "Se ha enviado un correo con el código de recuperación.";
         }
 
