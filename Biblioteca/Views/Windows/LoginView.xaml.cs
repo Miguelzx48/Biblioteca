@@ -18,6 +18,7 @@ using System.Windows.Shapes;
 
 namespace Biblioteca.Views
 {
+
     /// <summary>
     /// Lógica de interacción para LoginView.xaml
     /// </summary>
@@ -42,7 +43,7 @@ namespace Biblioteca.Views
             }
             else
             {
-                usuario.Activo = false;
+                
 
                 var main = new MainWindow(usuario);
                 main.Show();

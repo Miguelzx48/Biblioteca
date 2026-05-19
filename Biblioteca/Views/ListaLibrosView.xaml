@@ -34,8 +34,6 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
-
-                <!-- BUSCADOR -->
                 <Border Grid.Column="0"
             Background="White"
             CornerRadius="12"
@@ -59,8 +57,6 @@
                  GotFocus="TextBoxBuscar_GotFocus"
                  LostFocus="TextBoxBuscar_LostFocus"/>
                 </Border>
-
-                <!-- BOTON PDF -->
                 <Button Grid.Column="1"
             Content="EXPORTAR INVENTARIO PDF"
             Width="220"

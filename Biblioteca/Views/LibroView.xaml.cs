@@ -9,7 +9,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-
 namespace Biblioteca.Views
 {
     public partial class LibroView : UserControl
@@ -18,7 +17,7 @@ namespace Biblioteca.Views
 
         private Models.Usuario _usuario;
 
-        // AQUI VA LA VARIABLE
+        
         private string rutaImagen = "";
 
         public LibroView(Models.Usuario usuario)
@@ -26,8 +25,6 @@ namespace Biblioteca.Views
             InitializeComponent();
             _usuario = usuario;
         }
-
-        // AQUI VA EL METODO
         private void SeleccionarImagen(object sender, RoutedEventArgs e)
         {
             OpenFileDialog open = new OpenFileDialog();
@@ -42,7 +39,6 @@ namespace Biblioteca.Views
                     new Uri(rutaImagen));
             }
         }
-
         private void TextBox_GotFocus(object sender, RoutedEventArgs e)
         {
             TextBox txt = sender as TextBox;
@@ -53,7 +49,6 @@ namespace Biblioteca.Views
                 txt.Foreground = Brushes.Black;
             }
         }
-        
         private void RestaurarPlaceholders()
         {
             txtNombre.Text = "Título del libro...";
@@ -101,8 +96,6 @@ namespace Biblioteca.Views
                 txt.Foreground = Brushes.Gray;
             }
         }
-       
-
         private void GuardarLibro(object sender, RoutedEventArgs e)
         {
             try

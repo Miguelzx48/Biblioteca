@@ -41,13 +41,11 @@ namespace Biblioteca.Views
 
         private void HabilitarControles()
         {
-            // MOSTRAR CONTROLES NUEVOS
             stcLblRecuperar.Visibility = Visibility.Visible;
             stcCodigo.Visibility = Visibility.Visible;
             stcPassword.Visibility = Visibility.Visible;
             stcBtnGuardar.Visibility = Visibility.Visible;
 
-            // OCULTAR CONTROLES ANTERIORES
             lblMensaje.Visibility = Visibility.Hidden;
             stcEmail.Visibility = Visibility.Collapsed;
             stcBtnRecuperar.Visibility = Visibility.Collapsed;
