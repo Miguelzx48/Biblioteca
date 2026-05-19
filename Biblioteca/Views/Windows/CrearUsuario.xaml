@@ -5,52 +5,199 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Biblioteca.Views.Windows"
         mc:Ignorable="d"
-        Title="CrearUsuario" Height="450" Width="500">
-    <Grid>
+        Title="Crear Usuario"
+        Height="720"
+        Width="700"
+        WindowStartupLocation="CenterScreen"
+        Background="#F5F7FA">
+    <Grid Background="#FFCDE1FF">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Margin="30 30 30 5">
-            <TextBlock Text="Email*:"/>
-            <TextBox Name="txtEmail" />
-        </StackPanel>
-        <StackPanel Grid.Row="1" Margin="30,5">
-            <TextBlock Text="Contraseña*:"/>
-            <PasswordBox  Name="txtPassword" />
-        </StackPanel>
-        <StackPanel Grid.Row="2" Margin="30,5">
-            <TextBlock Text="Nombres*:"/>
-            <TextBox Name="txtNombres" />
-        </StackPanel>
-        <StackPanel Grid.Row="3" Margin="30,5">
-            <TextBlock Text="Apellidos*:"/>
-            <TextBox Name="txtApellidos" />
-        </StackPanel>
-        <StackPanel Grid.Row="4" Margin="30,5">
-            <TextBlock Text="Telefono:"/>
-            <TextBox Name="txtTelefono" />
-        </StackPanel>
-        <StackPanel Grid.Row="5" Margin="30,5">
-            <TextBlock Text="Fecha de Nacimiento*:"/>
-            <DatePicker Name="dtpckFechaNacimiento" />
-        </StackPanel>
-        <StackPanel Name="spActivo" Grid.Row="6" Margin="30,5" Visibility="Hidden">
-            <TextBlock Text="Activo:"/>
-            <CheckBox Name="chkActivo" />
-        </StackPanel>
-        <StackPanel Grid.Row="7" Margin="30,5" >
-            <Label Name="lblResponse"/>
-        </StackPanel>
-        <StackPanel Grid.Row="8" Margin="30, 5">
-            <Button Content="Guardar" Click="Button_Click"/>
-        </StackPanel>
+        <Border Grid.Row="0">
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5,1"
+                                     StartPoint="0.5,0">
+                    <GradientStop Color="#FF4749ED"/>
+                    <GradientStop Color="#FF0079FF"
+                                  Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <TextBlock Text="CREAR USUARIO"
+                       FontSize="35"
+                       FontWeight="Bold"
+                       Foreground="White"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+        </Border>
+        <ScrollViewer Grid.Row="1"
+                      VerticalScrollBarVisibility="Auto">
+            <Grid Margin="40">
+                <Border Background="White"
+                        CornerRadius="20"
+                        Padding="30">
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="15"
+                                          ShadowDepth="5"
+                                          Opacity="0.3"/>
+                    </Border.Effect>
+                    <StackPanel>
+                        <TextBlock Text="Email"
+                                   FontSize="17"
+                                   FontWeight="Bold"/>
+                        <Border CornerRadius="12"
+                                Background="White"
+                                BorderBrush="#BFC9D1"
+                                BorderThickness="1"
+                                Margin="0,5,0,15">
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="8"
+                                                  ShadowDepth="3"
+                                                  Opacity="0.2"/>
+                            </Border.Effect>
+                            <TextBox Name="txtEmail"
+                                     Height="40"
+                                     Padding="10"
+                                     BorderThickness="0"
+                                     Background="Transparent"/>
+                        </Border>
+                        <TextBlock Text="Contraseña"
+                                   FontSize="17"
+                                   FontWeight="Bold"/>
+                        <Border CornerRadius="12"
+                                Background="White"
+                                BorderBrush="#BFC9D1"
+                                BorderThickness="1"
+                                Margin="0,5,0,15">
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="8"
+                                                  ShadowDepth="3"
+                                                  Opacity="0.2"/>
+                            </Border.Effect>
+                            <PasswordBox Name="txtPassword"
+                                         Height="40"
+                                         Padding="10"
+                                         BorderThickness="0"
+                                         Background="Transparent"/>
+                        </Border>
+                        <TextBlock Text="Nombres"
+                                   FontSize="17"
+                                   FontWeight="Bold"/>
+                        <Border CornerRadius="12"
+                                Background="White"
+                                BorderBrush="#BFC9D1"
+                                BorderThickness="1"
+                                Margin="0,5,0,15">
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="8"
+                                                  ShadowDepth="3"
+                                                  Opacity="0.2"/>
+                            </Border.Effect>
+                            <TextBox Name="txtNombres"
+                                     Height="40"
+                                     Padding="10"
+                                     BorderThickness="0"
+                                     Background="Transparent"/>
+                        </Border>
+                        <TextBlock Text="Apellidos"
+                                   FontSize="17"
+                                   FontWeight="Bold"/>
+                        <Border CornerRadius="12"
+                                Background="White"
+                                BorderBrush="#BFC9D1"
+                                BorderThickness="1"
+                                Margin="0,5,0,15">
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="8"
+                                                  ShadowDepth="3"
+                                                  Opacity="0.2"/>
+                            </Border.Effect>
+                            <TextBox Name="txtApellidos"
+                                     Height="40"
+                                     Padding="10"
+                                     BorderThickness="0"
+                                     Background="Transparent"/>
+                        </Border>
+                        <TextBlock Text="Teléfono"
+                                   FontSize="17"
+                                   FontWeight="Bold"/>
+                        <Border CornerRadius="12"
+                                Background="White"
+                                BorderBrush="#BFC9D1"
+                                BorderThickness="1"
+                                Margin="0,5,0,15">
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="8"
+                                                  ShadowDepth="3"
+                                                  Opacity="0.2"/>
+                            </Border.Effect>
+                            <TextBox Name="txtTelefono"
+                                     Height="40"
+                                     Padding="10"
+                                     BorderThickness="0"
+                                     Background="Transparent"/>
+                        </Border>
+                        <TextBlock Text="Fecha de Nacimiento"
+                                   FontSize="17"
+                                   FontWeight="Bold"/>
+                        <Border CornerRadius="12"
+                                Background="White"
+                                BorderBrush="#BFC9D1"
+                                BorderThickness="1"
+                                Margin="0,5,0,15">
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="8"
+                                                  ShadowDepth="3"
+                                                  Opacity="0.2"/>
+                            </Border.Effect>
+                            <DatePicker Name="dtpckFechaNacimiento"
+                                        Height="40"
+                                        Padding="5"
+                                        BorderThickness="0"
+                                        Background="Transparent"/>
+                        </Border>
+                        <StackPanel Name="spActivo"
+                                    Visibility="Hidden"
+                                    Margin="0,10">
+                            <TextBlock Text="Activo"
+                                       FontSize="17"
+                                       FontWeight="Bold"/>
+                            <CheckBox Name="chkActivo"
+                                      Margin="0,10,0,0"/>
+                        </StackPanel>
+                        <Label Name="lblResponse"
+                               FontSize="15"
+                               FontWeight="Bold"
+                               Foreground="#D9534F"
+                               Margin="0,10,0,10"/>
+                        <Button Content="GUARDAR USUARIO"
+                                Height="50"
+                                FontSize="16"
+                                FontWeight="Bold"
+                                Background="#FF00BD14"
+                                Foreground="White"
+                                BorderThickness="0"
+                                Click="Button_Click">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+
+                                    <Border Background="{TemplateBinding Background}"
+                                            CornerRadius="15">
+                                        <Border.Effect>
+                                            <DropShadowEffect BlurRadius="8"
+                                                              ShadowDepth="4"
+                                                              Opacity="0.4"/>
+                                        </Border.Effect>
+                                        <ContentPresenter HorizontalAlignment="Center"
+                                                          VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </ScrollViewer>
     </Grid>
 </Window>

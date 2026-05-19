@@ -31,7 +31,7 @@ namespace Biblioteca.Views
         {
             email = txtEmail.Text;
             string resultado = loginService.RecuperarPassword(email);
-            lblMensaje.Content = resultado;
+            lblMensajeRecuperar.Text = resultado;
 
             if (resultado == "Se ha enviado un correo con el código de recuperación.")
             {
@@ -57,7 +57,7 @@ namespace Biblioteca.Views
 
             string resultado = loginService.CambiarPassword(codigo, email, nuevaPassword);
 
-            lblMensajeRecuperar.Content = resultado;
+            lblMensajeRecuperar.Text = resultado;
 
             btnRecuperar.IsEnabled = false;
         }

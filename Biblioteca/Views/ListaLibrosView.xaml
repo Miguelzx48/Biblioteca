@@ -24,17 +24,13 @@
                        VerticalAlignment="Center"/>
         </Border>
         <Grid Grid.Row="1" Margin="20">
-
             <Grid.RowDefinitions>
                 <RowDefinition Height="60"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-
-            <!-- BOTÓN -->
             <StackPanel Grid.Row="0"
                 Orientation="Horizontal"
                 HorizontalAlignment="Right">
-
                 <Button Content="EXPORTAR INVENTARIO PDF"
                 Width="220"
                 Height="45"
@@ -44,44 +40,31 @@
                 FontWeight="Bold"
                 BorderThickness="0"
                 Click="ExportarPDF">
-
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
-
                             <Border Background="{TemplateBinding Background}"
                             CornerRadius="12">
-
                                 <Border.Effect>
                                     <DropShadowEffect BlurRadius="8"
                                               ShadowDepth="4"
                                               Opacity="0.3"/>
                                 </Border.Effect>
-
                                 <ContentPresenter HorizontalAlignment="Center"
                                           VerticalAlignment="Center"/>
-
                             </Border>
-
                         </ControlTemplate>
-
                     </Button.Template>
-
                 </Button>
-
             </StackPanel>
-
-            <!-- TABLA -->
             <Border Grid.Row="1"
             Background="White"
             CornerRadius="15"
             Padding="10">
-
                 <Border.Effect>
                     <DropShadowEffect BlurRadius="10"
                               ShadowDepth="5"
                               Opacity="0.3"/>
                 </Border.Effect>
-
                 <DataGrid x:Name="dgLibros"
                   AutoGenerateColumns="False"
                   CanUserAddRows="False"
@@ -91,61 +74,45 @@
                         <DataGridTextColumn Header="ID"
                                             Binding="{Binding IdLibro}"
                                             Width="30"/>
-
                         <DataGridTextColumn Header="Nombre"
                                             Binding="{Binding Nombre}"
                                             Width="70"/>
-
                         <DataGridTextColumn Header="Autor"
                                             Binding="{Binding Autor}"
                                             Width="70"/>
                         <DataGridTextColumn Header="Categoría"
                                     Binding="{Binding Categoria}"
                                     Width="150"/>
-
                         <DataGridTextColumn Header="Editorial"
                                             Binding="{Binding Editorial}"
                                             Width="150"/>
-
                         <DataGridTextColumn Header="Stock"
                                             Binding="{Binding Stock}"
                                             Width="60"/>
-
                         <DataGridTextColumn Header="Descripcion"
                                             Binding="{Binding Descripción}"
                                             Width="150"/>
-
                         <DataGridTextColumn Header="Año"
                                             Binding="{Binding AnioPublicacion}"
                                             Width="70"/>
-
                         <DataGridTemplateColumn Header="Acción" Width="120">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-
                                     <Button Content="{Binding DataContext.TextoBoton,
                                                       RelativeSource={RelativeSource AncestorType=UserControl}}"
-
                                                         Background="{Binding DataContext.ColorBoton,
                                                                      RelativeSource={RelativeSource AncestorType=UserControl}}"
-
                                                         Foreground="White"
                                                         FontWeight="Bold"
                                                         Click="Accion_Click"
                                                         Tag="{Binding}"/>
-
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-
                     </DataGrid.Columns>
-
                 </DataGrid>
-
             </Border>
-
         </Grid>
     </Grid>
-
 </UserControl>
 

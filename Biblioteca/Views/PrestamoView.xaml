@@ -14,173 +14,136 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
-
         <Border Grid.Row="0">
-
             <Border.Background>
                 <LinearGradientBrush EndPoint="0.5,1"
                                      StartPoint="0.5,0">
-
                     <GradientStop Color="#FF4749ED"/>
                     <GradientStop Color="#FF0079FF"
                                   Offset="1"/>
-
                 </LinearGradientBrush>
             </Border.Background>
-
             <StackPanel Orientation="Horizontal"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center">
-
                 <TextBlock Text="GESTIÓN DE PRESTAMOS"
                            FontSize="35"
                            FontWeight="Bold"
                            Foreground="White"/>
-
             </StackPanel>
-
         </Border>
-
         <Grid Grid.Row="1"
               Margin="30">
-
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-
             <StackPanel Grid.Column="0"
                         Margin="10">
-
                 <TextBlock Text="ID Prestamo"
                            FontWeight="Bold"
                            FontSize="18"
                            Margin="0,0,0,5"/>
-
                 <Border CornerRadius="12"
                         Background="White"
                         BorderBrush="#BFC9D1"
                         BorderThickness="1">
-
                     <Border.Effect>
                         <DropShadowEffect BlurRadius="10"
                                           ShadowDepth="5"
                                           Opacity="0.3"/>
                     </Border.Effect>
-
                     <TextBox x:Name="txtIdPrestamo"
                              Height="35"
                              Padding="10"
                              BorderThickness="0"
                              Background="Transparent"/>
                 </Border>
-
                 <TextBlock Text="ID Usuario"
                            FontWeight="Bold"
                            FontSize="18"
                            Margin="0,20,0,5"/>
-
                 <Border CornerRadius="12"
                         Background="White"
                         BorderBrush="#BFC9D1"
                         BorderThickness="1">
-
                     <Border.Effect>
                         <DropShadowEffect BlurRadius="10"
                                           ShadowDepth="5"
                                           Opacity="0.3"/>
                     </Border.Effect>
-
                     <TextBox x:Name="txtIdUsuario"
                              Height="35"
                              Padding="10"
                              BorderThickness="0"
                              Background="Transparent"/>
                 </Border>
-
                 <TextBlock Text="ID Libro"
                            FontWeight="Bold"
                            FontSize="18"
                            Margin="0,20,0,5"/>
-
                 <Border CornerRadius="12"
                         Background="White"
                         BorderBrush="#BFC9D1"
                         BorderThickness="1">
-
                     <Border.Effect>
                         <DropShadowEffect BlurRadius="10"
                                           ShadowDepth="5"
                                           Opacity="0.3"/>
                     </Border.Effect>
-
                     <TextBox x:Name="txtIdLibro"
                              Height="35"
                              Padding="10"
                              BorderThickness="0"
                              Background="Transparent"/>
                 </Border>
-
             </StackPanel>
-
             <StackPanel Grid.Column="1"
                         Margin="10">
-
                 <TextBlock Text="Estado"
                            FontWeight="Bold"
                            FontSize="18"
                            Margin="0,0,0,5"/>
-
                 <Border CornerRadius="12"
                         Background="White"
                         BorderBrush="#BFC9D1"
                         BorderThickness="1">
-
                     <Border.Effect>
                         <DropShadowEffect BlurRadius="10"
                                           ShadowDepth="5"
                                           Opacity="0.3"/>
                     </Border.Effect>
-
                     <TextBox x:Name="txtEstado"
                              Height="35"
                              Padding="10"
                              BorderThickness="0"
                              Background="Transparent"/>
                 </Border>
-
                 <TextBlock Text="Multa"
                            FontWeight="Bold"
                            FontSize="18"
                            Margin="0,20,0,5"/>
-
                 <Border CornerRadius="12"
                         Background="White"
                         BorderBrush="#BFC9D1"
                         BorderThickness="1">
-
                     <Border.Effect>
                         <DropShadowEffect BlurRadius="10"
                                           ShadowDepth="5"
                                           Opacity="0.3"/>
                     </Border.Effect>
-
                     <TextBox x:Name="txtMulta"
                              Height="35"
                              Padding="10"
                              BorderThickness="0"
                              Background="Transparent"/>
                 </Border>
-
             </StackPanel>
-
         </Grid>
-
         <StackPanel Grid.Row="2"
                     Orientation="Horizontal"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center">
-
             <Button Content="Guardar"
                     Width="140"
                     Height="45"
@@ -191,33 +154,22 @@
                     Foreground="White"
                     BorderThickness="0"
                     Click="Guardar_Click">
-
                 <Button.Template>
-
                     <ControlTemplate TargetType="Button">
-
                         <Border Background="{TemplateBinding Background}"
                                 CornerRadius="15">
-
                             <Border.Effect>
-
                                 <DropShadowEffect BlurRadius="8"
                                                   ShadowDepth="5"
                                                   Opacity="0.4"/>
 
                             </Border.Effect>
-
                             <ContentPresenter HorizontalAlignment="Center"
                                               VerticalAlignment="Center"/>
-
                         </Border>
-
                     </ControlTemplate>
-
                 </Button.Template>
-
             </Button>
-
             <Button Content="Actualizar"
                     Width="140"
                     Height="45"
@@ -227,37 +179,21 @@
                     Background="#3A8DDB"
                     Foreground="White"
                     BorderThickness="0">
-
                 <Button.Template>
-
                     <ControlTemplate TargetType="Button">
-
                         <Border Background="{TemplateBinding Background}"
                                 CornerRadius="15">
-
                             <Border.Effect>
-
                                 <DropShadowEffect BlurRadius="8"
                                                   ShadowDepth="5"
                                                   Opacity="0.4"/>
-
                             </Border.Effect>
-
                             <ContentPresenter HorizontalAlignment="Center"
                                               VerticalAlignment="Center"/>
-
                         </Border>
-
                     </ControlTemplate>
-
                 </Button.Template>
-
             </Button>
-
-            
-
         </StackPanel>
-
     </Grid>
-
 </Window>
