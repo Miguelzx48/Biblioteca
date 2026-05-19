@@ -1,12 +1,7 @@
 ﻿using Biblioteca.Db;
 using Biblioteca.Models;
-using Biblioteca.Views;
-using MySql.Data.MySqlClient;
 using System;
 using System.Windows;
-using MySql.Data.MySqlClient;
-using Biblioteca.Views;
-using System.Windows.Controls;
 using System.Windows.Controls;
 using System.Windows.Media;
 using iTextSharp.text;
