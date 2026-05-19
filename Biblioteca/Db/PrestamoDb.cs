@@ -10,7 +10,7 @@ namespace Biblioteca.Db
 {
     public class PrestamoDb
     {
-        private readonly string connectionString = "";
+        private readonly string connectionString = "server=localhost;database=Biblioteca;user=root;password=123;";
         public PrestamoDb() { }
         public void CrearPrestamo(Prestamo prestamo)
         {
@@ -66,6 +66,195 @@ namespace Biblioteca.Db
                 }
             }
         }
-       
+
+        public bool ValidarPrestamo(int idUsuario)
+        {
+            string sql = @"SELECT * FROM Prestamos WHERE IdUsuario = @IdUsuario AND Estado = 'Activo'";
+
+            using (MySqlConnection conexion = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conexion.Open();
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, conexion))
+                    {
+                        cmd.Parameters.AddWithValue("@IdUsuario", idUsuario);
+                        using (MySqlDataReader result = cmd.ExecuteReader())
+                        {
+                            if (result.Read())
+                            {
+                                return true;
+                            }
+                        }
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+            }
+            return false;
+        }
+
+        public List<Prestamo> LeerListaPrestamos()
+        {
+            MySqlConnection conexion = new MySqlConnection(connectionString);
+
+            string sql = "SELECT * FROM Prestamos";
+            List<Prestamo> lstPrestamo = new List<Prestamo>();
+
+            try
+            {
+                conexion.Open();
+                using (MySqlCommand stmt = new MySqlCommand(sql, conexion))
+                {
+                    using (MySqlDataReader result = stmt.ExecuteReader())
+                    {
+                        while (result.Read())
+                        {
+                            Prestamo pre = new Prestamo();
+
+                            pre.IdPrestamo = result.GetInt32("IdPrestamo");
+                            pre.IdUsuario = result.GetInt32("IdUsuario");
+                            pre.IdLibro = result.GetInt32("IdLibro");
+                            pre.FechaPrestamo = result.GetDateTime("FechaPrestamo");
+                            pre.FechaEstimadaDevolucion = result.GetDateTime("FechaEstimadaDevolucion");
+                            pre.FechaRealDevolucion = result.GetDateTime("FechaRealDevolucion");
+                            pre.Multa = result.GetInt32("Multa");
+                            pre.Estado = result.GetInt32("Estado");
+                            pre.CantidadDiasMora = result.GetInt32("CantidadDiasMora");
+                            lstPrestamo.Add(pre);
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error al leer préstamos: " + e.Message);
+            }
+            finally
+            {
+                conexion.Close();
+            }
+
+            return lstPrestamo;
+        }
+
+        public Prestamo LeerPrestamoPorId(int idPrestamo)
+        {
+            Prestamo pre = null;
+            string sql = "SELECT * FROM Prestamos WHERE IdPrestamo = @IdPrestamo";
+
+            using (MySqlConnection conexion = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conexion.Open();
+                    using (MySqlCommand stmt = new MySqlCommand(sql, conexion))
+                    {
+                        stmt.Parameters.AddWithValue("@IdPrestamo", idPrestamo);
+                        using (MySqlDataReader result = stmt.ExecuteReader())
+                        {
+                            if (result.Read())
+                            {
+                                pre = new Prestamo();
+
+                                pre.IdPrestamo = result.GetInt32("IdPrestamo");
+                                pre.IdUsuario = result.GetInt32("IdUsuario");
+                                pre.IdLibro = result.GetInt32("IdLibro");
+                                pre.FechaPrestamo = result.GetDateTime("FechaPrestamo");
+                                pre.FechaEstimadaDevolucion = result.GetDateTime("FechaEstimadaDevolucion");
+                                pre.FechaRealDevolucion = result.GetDateTime("FechaRealDevolucion");
+                                pre.Multa = result.GetInt32("Multa");
+                                pre.Estado = result.GetInt32("Estado");
+                                pre.CantidadDiasMora = result.GetInt32("CantidadDiasMora");
+                            }
+                        }
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Error al leer préstamo: " + e.Message);
+                }
+                finally
+                {
+                    conexion.Close();
+                }
+            }
+
+            return pre;
+        }
+
+        public List<Grafico> PrestamosPorMes()
+        {
+
+            List<Grafico> lista = new List<Grafico>();
+
+            string sql = @"SELECT MONTHNAME(FechaPrestamo) AS Nombre, COUNT(IdPrestamo) AS Cantidad FROM Prestamos GROUP BY MONTH(FechaPrestamo), MONTHNAME(FechaPrestamo) ORDER BY MONTH(FechaPrestamo)";
+
+            using (MySqlConnection conexion = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conexion.Open();
+                    using (MySqlCommand stmt = new MySqlCommand(sql, conexion))
+                    { 
+                        using (MySqlDataReader result = stmt.ExecuteReader())
+                        {
+                            while (result.Read())
+                            {
+                                Grafico graf = new Grafico();
+
+                                graf.Nombre = result.GetString("Nombre");
+                                graf.Cantidad = result.GetDouble("Cantidad");
+
+                                lista.Add(graf);
+                            }
+                        }
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Error al cargar préstamos por mes: " + e.Message);
+                }
+            }
+
+            return lista;
+        }
+
+        public List<Grafico> MultasPorMes()
+        {
+            List<Grafico> lista = new List<Grafico>();
+
+            string sql = @"SELECT MONTHNAME(FechaPrestamo) AS Nombre, SUM(Multa) AS Cantidad FROM Prestamos WHERE Multa > 0 GROUP BY MONTH(FechaPrestamo), MONTHNAME(FechaPrestamo) ORDER BY MONTH(FechaPrestamo)";
+
+            using (MySqlConnection conexion = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conexion.Open();
+                    using (MySqlCommand cmd = new MySqlCommand(sql, conexion))
+                    {
+                        using (MySqlDataReader result = cmd.ExecuteReader())
+                        {
+                            while (result.Read())
+                            {
+                                Grafico grafico = new Grafico();
+                                grafico.Nombre = result.GetString("Nombre");
+                                grafico.Cantidad = result.GetDouble("Cantidad");
+
+                                lista.Add(grafico);
+                            }
+                        }
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Error al cargar multas por mes: " + e.Message);
+                }
+            }
+            return lista;
+        }
     }
 }

@@ -127,6 +127,7 @@
     <Compile Include="Db\LoginDb.cs" />
     <Compile Include="Db\PrestamoDb.cs" />
     <Compile Include="Db\UsuarioDb.cs" />
+    <Compile Include="Models\Grafico.cs" />
     <Compile Include="Models\libro.cs" />
     <Compile Include="Models\Prestamo.cs" />
     <Compile Include="Services\libroService.cs" />

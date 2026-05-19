@@ -139,5 +139,74 @@ namespace Biblioteca.Db
              }
             return lista;
         }
+
+        public bool ActualizarStock(int idLibro, int stock)
+        {
+            string sql = @" UPDATE Libros SET Stock = @Stock WHERE IdLibro = @IdLibro";
+
+            using (MySqlConnection conexion = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conexion.Open();
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, conexion))
+                    {
+                        cmd.Parameters.AddWithValue("@IdLibro", idLibro);
+                        cmd.Parameters.AddWithValue("@Stock", stock);
+                        int result = cmd.ExecuteNonQuery();
+                        return result > 0;
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+            }
+
+            return false;
+        }
+
+        public libro LeerLibroPorId(int idLibro)
+        {
+            libro lib = null;
+
+            string sql = "SELECT * FROM Libros WHERE IdLibro = @IdLibro";
+
+            using (MySqlConnection conexion = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conexion.Open();
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, conexion))
+                    {
+                        cmd.Parameters.AddWithValue("@IdLibro", idLibro);
+
+                        using (MySqlDataReader result = cmd.ExecuteReader())
+                        {
+                            if (result.Read())
+                            {
+                                lib = new libro();
+                                lib.IdLibro = result.GetInt32("IdLibro");
+                                lib.Nombre = result.GetString("Nombre");
+                                lib.Autor = result.GetString("Autor");
+                                lib.Categoria = result.GetString("Categoria");
+                                lib.Editorial = result.GetString("Editorial");
+                                lib.Stock = result.GetInt32("Stock");
+                                lib.Descripcion = result.GetString("Descripcion");
+                                lib.AnioPublicacion = result.GetInt32("AnioPublicaion");
+                            }
+                        }
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+            }
+
+            return lib;
+        }
     }
 }
