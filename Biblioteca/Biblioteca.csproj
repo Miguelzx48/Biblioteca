@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.9.0.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
+      <HintPath>..\packages\Portable.BouncyCastle.1.9.0\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
     <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
       <HintPath>..\packages\BouncyCastle.Cryptography.2.6.2\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
     </Reference>
@@ -62,8 +65,8 @@
     <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=10.0.0.8, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.10.0.8\lib\net462\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
     </Reference>
-    <Reference Include="MySql.Data, Version=9.7.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <HintPath>..\packages\MySql.Data.9.7.0\lib\net462\MySql.Data.dll</HintPath>
+    <Reference Include="MySql.Data, Version=8.0.33.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.33\lib\net462\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="MySqlConnector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=d33d3e53aa5f8c92, processorArchitecture=MSIL">
       <HintPath>..\packages\MySqlConnector.2.5.0\lib\net471\MySqlConnector.dll</HintPath>
@@ -127,6 +130,7 @@
     <Compile Include="Db\LoginDb.cs" />
     <Compile Include="Db\PrestamoDb.cs" />
     <Compile Include="Db\UsuarioDb.cs" />
+    <Compile Include="Models\Grafico.cs" />
     <Compile Include="Models\libro.cs" />
     <Compile Include="Models\Prestamo.cs" />
     <Compile Include="Services\libroService.cs" />
@@ -145,8 +149,26 @@
     <Compile Include="Views\ListaLibrosView.xaml.cs">
       <DependentUpon>ListaLibrosView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\PrestamoView.xaml.cs">
-      <DependentUpon>PrestamoView.xaml</DependentUpon>
+    <Compile Include="Views\PrestamoAdmin.xaml.cs">
+      <DependentUpon>PrestamoAdmin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UsuarioPagina\DetalleLibro.xaml.cs">
+      <DependentUpon>DetalleLibro.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UsuarioPagina\LibroUsuario.xaml.cs">
+      <DependentUpon>LibroUsuario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UsuarioPagina\MultaUsuario.xaml.cs">
+      <DependentUpon>MultaUsuario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UsuarioPagina\PerfilUsuario.xaml.cs">
+      <DependentUpon>PerfilUsuario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UsuarioPagina\PrestamoUsuario.xaml.cs">
+      <DependentUpon>PrestamoUsuario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UsuarioPagina\Usuario.xaml.cs">
+      <DependentUpon>Usuario.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Windows\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
@@ -185,7 +207,31 @@
     <Page Include="Views\ListaLibrosView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\PrestamoView.xaml">
+    <Page Include="Views\PrestamoAdmin.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UsuarioPagina\DetalleLibro.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UsuarioPagina\LibroUsuario.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UsuarioPagina\MultaUsuario.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UsuarioPagina\PerfilUsuario.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UsuarioPagina\PrestamoUsuario.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UsuarioPagina\Usuario.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

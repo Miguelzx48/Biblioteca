@@ -18,8 +18,9 @@ namespace Biblioteca.Models
         public string Descripcion { get; set; }
         public int AnioPublicacion { get; set; }
         public string Imagen { get; set; }
+        public string Estado { get; set; }
         public libro() { }
-        public libro(int idLibro , string nombre , string autor ,string categoria, string editorial , int stock , string descripcion , int anioPublicacion )
+        public libro(int idLibro , string nombre , string autor ,string categoria, string editorial , int stock , string descripcion , int anioPublicacion, string estado )
         {
             IdLibro = idLibro;
             Nombre = nombre;
@@ -28,7 +29,8 @@ namespace Biblioteca.Models
             Editorial = editorial;
             Stock = stock;
             Descripcion = descripcion;
-            AnioPublicacion = anioPublicacion;  
+            AnioPublicacion = anioPublicacion;
+            Estado = estado;
         }
     }
 }

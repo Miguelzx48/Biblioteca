@@ -1,12 +1,12 @@
 ﻿using Biblioteca.Models;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using MySql.Data.MySqlClient;
 
 namespace Biblioteca.Db
 {
@@ -114,7 +114,7 @@ namespace Biblioteca.Db
             {
                 conn.Open();
 
-                string query = "SELECT IdLibro, Nombre, Autor, Categoria, Editorial, Stock, Descripcion, AnioPublicacion FROM Libros";
+                string query = "SELECT IdLibro, Nombre, Autor, Categoria, Editorial, Stock, Descripcion, AnioPublicacion, Imagen FROM Libros";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                                     {
@@ -131,13 +131,153 @@ namespace Biblioteca.Db
                                 Editorial = reader["Editorial"].ToString(),
                                 Stock = Convert.ToInt32(reader["Stock"]),
                                 Descripcion = reader["Descripcion"].ToString(),
-                                AnioPublicacion = Convert.ToInt32(reader["AnioPublicacion"])
+                                AnioPublicacion = Convert.ToInt32(reader["AnioPublicacion"]),
+                                Imagen = reader["Imagen"].ToString()
                             };
                             lista.Add(libro);
                         }
                     }
                 }
              }
+            return lista;
+        }
+        public libro LeerLibroPorId(int idLibro)
+        {
+
+            libro lib = null;
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+
+                conn.Open();
+
+                string query = @" SELECT * FROM Libros WHERE IdLibro = @idLibro";
+
+                using (MySqlCommand stmt = new MySqlCommand(query, conn))
+                {
+                    stmt.Parameters.AddWithValue("@idLibro", idLibro);
+
+                    using (MySqlDataReader result = stmt.ExecuteReader())
+                    {
+                        if (result.Read())
+                        {
+
+                            lib = new libro();
+
+                            lib.IdLibro = result.GetInt32("IdLibro");
+                            lib.Nombre = result.GetString("Nombre");
+                            lib.Autor = result.GetString("Autor");
+                            lib.Categoria = result.GetString("Categoria");
+                            lib.Editorial = result.GetString("Editorial");
+                            lib.Stock = result.GetInt32("Stock");
+                            lib.Descripcion = result.GetString("Descripcion");
+                            lib.AnioPublicacion = result.GetInt32("AnioPublicacion");
+
+                        }
+                    }
+                }
+            }
+
+            return lib;
+        }
+        public bool DescontarStock(int idLibro, int stock)
+        {
+
+            string query = @" UPDATE Libros SET Stock = @stock WHERE IdLibro = @idLibro";
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+
+                conn.Open();
+
+                using (MySqlCommand stmt = new MySqlCommand(query, conn))
+                {
+                    stmt.Parameters.AddWithValue("@idLibro", idLibro);
+
+                    stmt.Parameters.AddWithValue("@stock", stock);
+
+                    int result = stmt.ExecuteNonQuery();
+
+                    return result > 0;
+                }
+            }
+        }
+        public bool AumentarStock(int idLibro, int stock)
+        {
+            return DescontarStock(idLibro, stock);
+        }
+        public List<libro> BuscadorLibros(String texto)
+        {
+
+            List<libro> lista = new List<libro>();
+
+            string query = @" SELECT * FROM Libros WHERE Nombre LIKE @texto OR Autor LIKE @texto 
+                            OR Categoria LIKE @texto OR Editorial LIKE @texto";
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+
+                conn.Open();
+
+                using (MySqlCommand stmt = new MySqlCommand(query, conn))
+                {
+                    stmt.Parameters.AddWithValue("@texto", "%" + texto + "%");
+
+                    using (MySqlDataReader result = stmt.ExecuteReader())
+                    {
+                        while (result.Read())
+                        {
+                            libro lib = new libro();
+
+                            lib.IdLibro = result.GetInt32("IdLibro");
+                            lib.Nombre = result.GetString("Nombre");
+                            lib.Autor = result.GetString("Autor");
+                            lib.Categoria = result.GetString("Categoria");
+                            lib.Editorial = result.GetString("Editorial");
+                            lib.Stock = result.GetInt32("Stock");
+                            lib.Descripcion = result.GetString("Descripcion");
+                            lib.AnioPublicacion = result.GetInt32("AnioPublicacion");
+                            lib.Imagen = result.GetString("Imagen");
+
+                            lista.Add(lib);
+                        }
+                    }
+                }
+            }
+
+            return lista;
+        }
+        public List<Grafico> LibrosMasPrestadosPorMes()
+        {
+
+            List<Grafico> lista = new List<Grafico>();
+
+            string query = @"SELECT l.Nombre, COUNT(p.IdLibro) AS Cantidad FROM Prestamos p
+                            INNER JOIN Libros l ON p.IdLibro = l.IdLibro WHERE MONTH(p.FechaPrestamo) = MONTH(CURDATE()) AND YEAR(p.FechaPrestamo) = YEAR(CURDATE())
+                            GROUP BY l.Nombre ORDER BY Cantidad DESC LIMIT 5";
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                    
+                conn.Open();
+
+                using (MySqlCommand stmt = new MySqlCommand(query, conn))
+                {
+                    using (MySqlDataReader result = stmt.ExecuteReader())
+                    {
+                        while (result.Read())
+                        {
+                            Grafico grafico = new Grafico();
+
+                            grafico.Nombre = result.GetString("Nombre");
+                            grafico.Cantidad = result.GetDouble("Cantidad");
+
+                            lista.Add(grafico);
+                        }
+                    }
+                }
+            }
+
             return lista;
         }
     }

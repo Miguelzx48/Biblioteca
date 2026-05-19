@@ -1,0 +1,77 @@
+﻿<UserControl x:Class="Biblioteca.Views.UsuarioPagina.PrestamoUsuario"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
+             d:DesignHeight="720"
+             d:DesignWidth="1280">
+
+    <Grid Background="#F5F5F5"
+          Margin="25">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- TITULO -->
+        <TextBlock Text="Mis Préstamos"
+                   FontSize="32"
+                   FontWeight="Bold"
+                   Foreground="#1E293B"
+                   Margin="0,0,0,20"/>
+
+        <!-- TABLA -->
+        <DataGrid x:Name="dgPrestamos"
+                  Grid.Row="1"
+                  AutoGenerateColumns="False"
+                  Background="White"
+                  CanUserAddRows="False"
+                  IsReadOnly="True"
+                  RowHeight="45">
+
+            <DataGrid.Columns>
+
+                <DataGridTextColumn Header="Fecha Préstamo"
+                                    Binding="{Binding FechaPrestamo}"
+                                    Width="*"/>
+
+                <DataGridTextColumn Header="Fecha Límite"
+                                    Binding="{Binding FechaEstimadaDevolucion}"
+                                    Width="*"/>
+
+                <DataGridTextColumn Header="Estado"
+                                    Binding="{Binding Estado}"
+                                    Width="*"/>
+
+                <DataGridTextColumn Header="Multa"
+                                    Binding="{Binding Multa}"
+                                    Width="*"/>
+
+                <DataGridTemplateColumn Header="Acción"
+                                        Width="150">
+
+                    <DataGridTemplateColumn.CellTemplate>
+
+                        <DataTemplate>
+
+                            <Button Content="Devolver"
+                                    Background="#1E293B"
+                                    Foreground="White"
+                                    BorderThickness="0"
+                                    Click="BtnDevolverClick"/>
+
+                        </DataTemplate>
+
+                    </DataGridTemplateColumn.CellTemplate>
+
+                </DataGridTemplateColumn>
+
+            </DataGrid.Columns>
+
+        </DataGrid>
+
+    </Grid>
+
+</UserControl>

@@ -14,7 +14,7 @@ namespace Biblioteca.Models
         public string Nombres { get; set; }
         public string Apellidos { get; set; }
         public int TipoUsuario { get; set; }
-        public DateTime FechaNacimiento { get; }
+        public DateTime FechaNacimiento { get; set;}
         public string Telefono { get; set; }
         public bool Activo { get; set; }
 

@@ -1,5 +1,4 @@
-﻿
-using Biblioteca.Controllers;
+﻿using Biblioteca.Controllers;
 using Biblioteca.Models;
 using Biblioteca.Views.Windows;
 using System;
@@ -23,7 +22,11 @@ namespace Biblioteca.Views
     /// </summary>
     public partial class LoginView : Window
     {
+        
+        public static Biblioteca.Models.Usuario UsuarioActual;
+
         LoginController controller;
+
         public LoginView()
         {
             InitializeComponent();
@@ -36,12 +39,18 @@ namespace Biblioteca.Views
             string password = txtPassword.Password;
 
             Models.Usuario usuario = controller.Login(email, password);
+
             if (usuario == null)
             {
                 lblError.Content = "Usuario y/o contraseña incorrecta";
             }
             else
             {
+                
+
+                UsuarioActual = usuario;
+
+
                 usuario.Activo = false;
 
                 var main = new MainWindow(usuario);
@@ -54,6 +63,8 @@ namespace Biblioteca.Views
         {
             var crearCuenta = new CrearUsuario(0);
             crearCuenta.Show();
+
+            
             this.Close();
         }
 
@@ -61,6 +72,8 @@ namespace Biblioteca.Views
         {
             var olvidoPassword = new OlvidoPassword();
             olvidoPassword.Show();
+
+            
             this.Close();
         }
 

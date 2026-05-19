@@ -13,11 +13,11 @@ namespace Biblioteca.Models
         public DateTime FechaPrestamo { get; set; }
         public DateTime FechaEstimadaDevolucion { get; set; }
         public DateTime? FechaRealDevolucion { get; set; }
-        public int Multa { get; set; }
+        public double Multa { get; set; }
         public int CantidadDiasMora { get; set; }
-        public bool Estado  { get; set; }
+        public String Estado  { get; set; }
         public Prestamo(){}
-        public Prestamo(int idPrestamo, int idUsuario, int idLibro, DateTime fechaPrestamo, DateTime fechaEstimadaDevolucion, DateTime fechaRealDevolucion, int multa, int cantidadDiasMora, bool estado)
+        public Prestamo(int idPrestamo, int idUsuario, int idLibro, DateTime fechaPrestamo, DateTime fechaEstimadaDevolucion, DateTime fechaRealDevolucion, int multa, int cantidadDiasMora, string estado)
         {
             IdPrestamo = idPrestamo;
             IdUsuario = idUsuario;

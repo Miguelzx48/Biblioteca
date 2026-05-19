@@ -30,6 +30,41 @@ namespace Biblioteca.Services
             LibroDb libroDb = new LibroDb();
             return libroDb.ObtenerTodos();
         }
+        public List<libro> ObtenerTodos()
+        {
+            LibroDb libroDb = new LibroDb();
+            return libroDb.ObtenerTodos();
+        }
+        public libro LeerLibroPorId(int idLibro)
+        {
+            LibroDb libroDb = new LibroDb();
+
+            return libroDb.LeerLibroPorId(idLibro);
+        }
+        public bool DescontarStock(int idLibro, int stock)
+        {
+            LibroDb libroDb = new LibroDb();
+
+            return libroDb.DescontarStock(idLibro, stock);
+        }
+        public bool AumentarStock(int idLibro, int stock)
+        {
+            LibroDb libroDb = new LibroDb();
+
+            return libroDb.AumentarStock(idLibro, stock);
+        }
+        public List<libro> BuscadorLibros(string texto)
+        {
+            LibroDb libroDb = new LibroDb();
+
+            return libroDb.BuscadorLibros(texto);
+        }
+        public List<Grafico> LibrosMasPrestadosPorMes()
+        {
+            LibroDb libroDb = new LibroDb();
+
+            return libroDb.LibrosMasPrestadosPorMes();
+        }
     }
 }
 

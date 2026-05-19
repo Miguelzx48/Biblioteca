@@ -1,0 +1,142 @@
+﻿<UserControl x:Class="Biblioteca.Views.UsuarioPagina.PerfilUsuario"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
+             d:DesignHeight="720"
+             d:DesignWidth="1280">
+
+    <Grid Background="#F5F5F5"
+          Margin="35">
+
+        <Border Background="White"
+                CornerRadius="20"
+                Padding="35">
+
+            <StackPanel>
+
+                <!-- TITULO -->
+                <TextBlock Text="Mi Perfil"
+                           FontSize="36"
+                           FontWeight="Bold"
+                           Foreground="#1E293B"
+                           Margin="0,0,0,30"/>
+
+                <!-- SUBTITULO -->
+                <TextBlock Text="Información del usuario"
+                           FontSize="22"
+                           FontWeight="Bold"
+                           Foreground="#334155"
+                           Margin="0,0,0,25"/>
+
+                <!-- DATOS -->
+                <Grid>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="220"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="55"/>
+                        <RowDefinition Height="55"/>
+                        <RowDefinition Height="55"/>
+                        <RowDefinition Height="55"/>
+                        <RowDefinition Height="55"/>
+                        <RowDefinition Height="55"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- NOMBRES -->
+                    <TextBlock Text="Nombres:"
+                               Grid.Row="0"
+                               Grid.Column="0"
+                               FontSize="18"
+                               FontWeight="Bold"
+                               VerticalAlignment="Center"/>
+
+                    <TextBlock x:Name="txtNombres"
+                               Grid.Row="0"
+                               Grid.Column="1"
+                               FontSize="18"
+                               VerticalAlignment="Center"/>
+
+                    <!-- APELLIDOS -->
+                    <TextBlock Text="Apellidos:"
+                               Grid.Row="1"
+                               Grid.Column="0"
+                               FontSize="18"
+                               FontWeight="Bold"
+                               VerticalAlignment="Center"/>
+
+                    <TextBlock x:Name="txtApellidos"
+                               Grid.Row="1"
+                               Grid.Column="1"
+                               FontSize="18"
+                               VerticalAlignment="Center"/>
+
+                    <!-- EMAIL -->
+                    <TextBlock Text="Email:"
+                               Grid.Row="2"
+                               Grid.Column="0"
+                               FontSize="18"
+                               FontWeight="Bold"
+                               VerticalAlignment="Center"/>
+
+                    <TextBlock x:Name="txtEmail"
+                               Grid.Row="2"
+                               Grid.Column="1"
+                               FontSize="18"
+                               VerticalAlignment="Center"/>
+
+                    <!-- TELEFONO -->
+                    <TextBlock Text="Teléfono:"
+                               Grid.Row="3"
+                               Grid.Column="0"
+                               FontSize="18"
+                               FontWeight="Bold"
+                               VerticalAlignment="Center"/>
+
+                    <TextBlock x:Name="txtTelefono"
+                               Grid.Row="3"
+                               Grid.Column="1"
+                               FontSize="18"
+                               VerticalAlignment="Center"/>
+
+                    <!-- FECHA -->
+                    <TextBlock Text="Fecha nacimiento:"
+                               Grid.Row="4"
+                               Grid.Column="0"
+                               FontSize="18"
+                               FontWeight="Bold"
+                               VerticalAlignment="Center"/>
+
+                    <TextBlock x:Name="txtFechaNacimiento"
+                               Grid.Row="4"
+                               Grid.Column="1"
+                               FontSize="18"
+                               VerticalAlignment="Center"/>
+
+                    <!-- ESTADO -->
+                    <TextBlock Text="Estado:"
+                               Grid.Row="5"
+                               Grid.Column="0"
+                               FontSize="18"
+                               FontWeight="Bold"
+                               VerticalAlignment="Center"/>
+
+                    <TextBlock x:Name="txtActivo"
+                               Grid.Row="5"
+                               Grid.Column="1"
+                               FontSize="18"
+                               VerticalAlignment="Center"/>
+
+                </Grid>
+
+            </StackPanel>
+
+        </Border>
+
+    </Grid>
+
+</UserControl>
