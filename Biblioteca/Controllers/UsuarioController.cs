@@ -17,10 +17,10 @@ namespace Biblioteca.Controllers
             usuarioServicio.ValidarAdminDefault();
         }
 
-        public void Crear(Usuario usuario)
+        public string Crear(Usuario usuario)
         {
             UsuarioServicio usuarioServicio = new UsuarioServicio();
-            usuarioServicio.Crear(usuario);
+            return usuarioServicio.Crear(usuario);
         }
 
         public List<Usuario> ObtenerTodos()
@@ -35,10 +35,10 @@ namespace Biblioteca.Controllers
             return usuarioServicio.ObtenerPorId(idUsuario);
         }
 
-        public void Actualizar(Usuario usuario)
+        public string Actualizar(Usuario usuario)
         {
             UsuarioServicio usuarioServicio = new UsuarioServicio();
-            usuarioServicio.Actualizar(usuario);
+            return usuarioServicio.Actualizar(usuario);
         }
 
         public void Eliminar(int idUsuario)

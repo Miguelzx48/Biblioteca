@@ -15,21 +15,6 @@ namespace Biblioteca.Db
     {
         private readonly string connectionString = "server=localhost;database=Biblioteca;user=root;password=123;";
 
-
-        public bool ExisteUsuarioAdminDefault()
-        {
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
-            {
-                conn.Open();
-                string query = "SELECT COUNT(*) FROM Usuarios WHERE email = 'admin@biblioteca.com'";
-                using (MySqlCommand cmd = new MySqlCommand(query, conn))
-                {
-                    int count = Convert.ToInt32(cmd.ExecuteScalar());
-                    return count > 0;
-                }
-            }
-        }
-
         public void CrearUsuarioAdminDefault()
         {
             Usuario admin = new Usuario
@@ -46,7 +31,7 @@ namespace Biblioteca.Db
             CrearUsuario(admin);
         }
 
-        public void CrearUsuario(Usuario usuario)
+        public string CrearUsuario(Usuario usuario)
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
@@ -67,26 +52,29 @@ namespace Biblioteca.Db
                     cmd.ExecuteNonQuery();
                 }
             }
+
+            return "Usuario creado exitosamente";
         }
 
-        public void Actualizar(Usuario usuario)
+        public string Actualizar(Usuario usuario)
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
                 string query = @"
-                    UPDATE Usuarios SET Nombres = @nombres, Apellidos = @apellidos, Telefono = @telefono , Activo = @activo
+                    UPDATE Usuarios SET Telefono = @telefono ,Password = @password, Activo = @activo
                     WHERE Id = @id";
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@nombres", usuario.Nombres);
-                    cmd.Parameters.AddWithValue("@apellidos", usuario.Apellidos);
+                {  
                     cmd.Parameters.AddWithValue("@telefono", usuario.Telefono);
+                    cmd.Parameters.AddWithValue("@password", usuario.Password);
                     cmd.Parameters.AddWithValue("@activo", usuario.Activo);
                     cmd.Parameters.AddWithValue("@id", usuario.Id);
                     cmd.ExecuteNonQuery();
                 }
             }
+
+            return "Usuario actualizado exitosamente";
         }
 
         public List<Usuario> Obtener()
@@ -165,7 +153,22 @@ namespace Biblioteca.Db
                 }
             }
         }
-        
+
+        public bool ExisteCorreo(string email)
+        {
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                string query = "SELECT COUNT(*) FROM Usuarios WHERE email = @email";
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@email", email);
+                    int count = Convert.ToInt32(cmd.ExecuteScalar());
+                    return count > 0;
+                }
+            }
+        }
+
         public void ProbarConexion()
         {
             try

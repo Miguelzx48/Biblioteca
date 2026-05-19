@@ -62,9 +62,15 @@ namespace Biblioteca.Views.Windows
             string telefono = txtTelefono.Text;
             DateTime fechaNacimiento = DateTime.Parse(dtpckFechaNacimiento.Text);
 
+            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(nombres) || string.IsNullOrEmpty(apellidos) || fechaNacimiento == DateTime.MinValue)
+            {
+                lblResponse.Content = "Por favor, complete todos los campos obligatorios (*).";
+                return;
+            }
+
             usuario = new Models.Usuario(email, password, nombres, apellidos, tipoUsuario, fechaNacimiento, telefono, true);
 
-            controller.Crear(usuario);
+            lblResponse.Content = controller.Crear(usuario);
         }
 
         private void Actualizar()
@@ -72,7 +78,7 @@ namespace Biblioteca.Views.Windows
             usuario.Password = txtPassword.Password;
             usuario.Telefono = txtTelefono.Text;
 
-            controller.Actualizar(usuario);
+            lblResponse.Content = controller.Actualizar(usuario);
         }
 
         private void DisableControlsEdition(int tipousuarioedita)
