@@ -1,0 +1,174 @@
+﻿<UserControl x:Class="Biblioteca.Views.PrestamosAdmin"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             d:DesignHeight="720"
+             d:DesignWidth="1200">
+
+    <Grid Background="#F5F5F5"
+          Margin="25">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- 📌 TITULO -->
+        <TextBlock Text="Gestión de Préstamos"
+                   FontSize="34"
+                   FontWeight="Bold"
+                   Foreground="#1E293B"
+                   VerticalAlignment="Center"/>
+
+        <!-- 🔎 BUSCADOR -->
+        <Border Grid.Row="1"
+                Background="White"
+                CornerRadius="15"
+                Height="50"
+                BorderBrush="#E2E8F0"
+                BorderThickness="1">
+
+            <Grid>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="60"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- INPUT -->
+                <TextBox x:Name="txtBuscar"
+                         FontSize="16"
+                         BorderThickness="0"
+                         VerticalContentAlignment="Center"
+                         Margin="15,0"
+                         Background="Transparent"
+                         TextChanged="txtBuscar_TextChanged"/>
+
+                <!-- ICONO -->
+                <Border Grid.Column="1"
+                        Background="#1E293B"
+                        CornerRadius="0,15,15,0">
+
+                    <TextBlock Text="🔎"
+                               Foreground="White"
+                               FontSize="18"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"/>
+
+                </Border>
+
+            </Grid>
+
+        </Border>
+
+        <!-- 📚 TABLA -->
+        <Border Grid.Row="2"
+                Background="White"
+                CornerRadius="15"
+                Margin="0,20,0,0"
+                Padding="10">
+
+            <DataGrid x:Name="dgPrestamos"
+                      AutoGenerateColumns="False"
+                      CanUserAddRows="False"
+                      IsReadOnly="True"
+                      Background="White"
+                      BorderThickness="0"
+                      HeadersVisibility="Column"
+                      GridLinesVisibility="Horizontal"
+                      RowHeight="45"
+                      FontSize="14">
+
+                <DataGrid.Columns>
+
+                    <!-- ID -->
+                    <DataGridTextColumn Header="ID"
+                                        Binding="{Binding IdPrestamo}"
+                                        Width="70"/>
+
+                    <!-- USUARIO -->
+                    <DataGridTextColumn Header="Usuario"
+                                        Binding="{Binding IdUsuario}"
+                                        Width="100"/>
+
+                    <!-- LIBRO -->
+                    <DataGridTextColumn Header="Libro"
+                                        Binding="{Binding IdLibro}"
+                                        Width="100"/>
+
+                    <!-- FECHA PRESTAMO -->
+                    <DataGridTextColumn Header="Fecha préstamo"
+                                        Binding="{Binding FechaPrestamo}"
+                                        Width="*"/>
+
+                    <!-- FECHA DEVOLUCION -->
+                    <DataGridTextColumn Header="Fecha devolución"
+                                        Binding="{Binding FechaEstimadaDevolucion}"
+                                        Width="*"/>
+
+                    <!-- ESTADO -->
+                    <DataGridTextColumn Header="Estado"
+                                        Binding="{Binding Estado}"
+                                        Width="120"/>
+
+                    <!-- MULTA -->
+                    <DataGridTextColumn Header="Multa"
+                                        Binding="{Binding Multa}"
+                                        Width="120"/>
+
+                    <!-- DIAS MORA -->
+                    <DataGridTextColumn Header="Días mora"
+                                        Binding="{Binding CantidadDiasMora}"
+                                        Width="120"/>
+
+                    <!-- ACCIONES -->
+                    <DataGridTemplateColumn Header="Acciones"
+                                            Width="240">
+
+                        <DataGridTemplateColumn.CellTemplate>
+
+                            <DataTemplate>
+
+                                <StackPanel Orientation="Horizontal"
+                                            HorizontalAlignment="Center">
+
+                                    <!-- ACTUALIZAR -->
+                                    <Button Content="Actualizar"
+                                            Width="100"
+                                            Height="32"
+                                            Margin="5"
+                                            Background="#0F766E"
+                                            Foreground="White"
+                                            BorderThickness="0"
+                                            Click="BtnActualizarMultaClick"/>
+
+                                    <!-- ELIMINAR -->
+                                    <Button Content="Eliminar"
+                                            Width="90"
+                                            Height="32"
+                                            Margin="5"
+                                            Background="#DC2626"
+                                            Foreground="White"
+                                            BorderThickness="0"
+                                            Click="BtnEliminarClick"/>
+
+                                </StackPanel>
+
+                            </DataTemplate>
+
+                        </DataGridTemplateColumn.CellTemplate>
+
+                    </DataGridTemplateColumn>
+
+                </DataGrid.Columns>
+
+            </DataGrid>
+
+        </Border>
+
+    </Grid>
+
+</UserControl>

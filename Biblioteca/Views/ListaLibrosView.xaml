@@ -1,0 +1,151 @@
+﻿<UserControl x:Class="Biblioteca.Views.ListaLibrosView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Height="600"
+        Width="1000"
+        Background="#F5F7FA">
+    <Grid Background="#FFCDE1FF">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0">
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF4749ED"/>
+                    <GradientStop Color="#FF0079FF" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <TextBlock Text=" LIBROS"
+                       Foreground="White"
+                       FontSize="35"
+                       FontWeight="Bold"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+        </Border>
+        <Grid Grid.Row="1" Margin="20">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- BOTÓN -->
+            <StackPanel Grid.Row="0"
+                Orientation="Horizontal"
+                HorizontalAlignment="Right">
+
+                <Button Content="EXPORTAR INVENTARIO PDF"
+                Width="220"
+                Height="45"
+                Margin="10"
+                Background="#D9534F"
+                Foreground="White"
+                FontWeight="Bold"
+                BorderThickness="0"
+                Click="ExportarPDF">
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+
+                            <Border Background="{TemplateBinding Background}"
+                            CornerRadius="12">
+
+                                <Border.Effect>
+                                    <DropShadowEffect BlurRadius="8"
+                                              ShadowDepth="4"
+                                              Opacity="0.3"/>
+                                </Border.Effect>
+
+                                <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"/>
+
+                            </Border>
+
+                        </ControlTemplate>
+
+                    </Button.Template>
+
+                </Button>
+
+            </StackPanel>
+
+            <!-- TABLA -->
+            <Border Grid.Row="1"
+            Background="White"
+            CornerRadius="15"
+            Padding="10">
+
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="10"
+                              ShadowDepth="5"
+                              Opacity="0.3"/>
+                </Border.Effect>
+
+                <DataGrid x:Name="dgLibros"
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="False"
+                  FontSize="14"
+                  RowHeight="40">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID"
+                                            Binding="{Binding IdLibro}"
+                                            Width="30"/>
+
+                        <DataGridTextColumn Header="Nombre"
+                                            Binding="{Binding Nombre}"
+                                            Width="70"/>
+
+                        <DataGridTextColumn Header="Autor"
+                                            Binding="{Binding Autor}"
+                                            Width="70"/>
+                        <DataGridTextColumn Header="Categoría"
+                                    Binding="{Binding Categoria}"
+                                    Width="150"/>
+
+                        <DataGridTextColumn Header="Editorial"
+                                            Binding="{Binding Editorial}"
+                                            Width="150"/>
+
+                        <DataGridTextColumn Header="Stock"
+                                            Binding="{Binding Stock}"
+                                            Width="60"/>
+
+                        <DataGridTextColumn Header="Descripcion"
+                                            Binding="{Binding Descripción}"
+                                            Width="150"/>
+
+                        <DataGridTextColumn Header="Año"
+                                            Binding="{Binding AnioPublicacion}"
+                                            Width="70"/>
+
+                        <DataGridTemplateColumn Header="Acción" Width="120">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+
+                                    <Button Content="{Binding DataContext.TextoBoton,
+                                                      RelativeSource={RelativeSource AncestorType=UserControl}}"
+
+                                                        Background="{Binding DataContext.ColorBoton,
+                                                                     RelativeSource={RelativeSource AncestorType=UserControl}}"
+
+                                                        Foreground="White"
+                                                        FontWeight="Bold"
+                                                        Click="Accion_Click"
+                                                        Tag="{Binding}"/>
+
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                    </DataGrid.Columns>
+
+                </DataGrid>
+
+            </Border>
+
+        </Grid>
+    </Grid>
+
+</UserControl>
+

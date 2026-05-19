@@ -1,0 +1,2 @@
+﻿C:\Users\Usuario\source\repos\Biblioteca\Biblioteca.csproj : error  : No se pudo cargar el archivo del proyecto. Un nombre no puede empezar con el carácter '<', valor hexadecimal 0x3C. línea 1, posición 2.  C:\Users\Usuario\source\repos\Biblioteca\Biblioteca.csproj
+
