@@ -21,7 +21,6 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <!-- IMAGEN -->
                 <Border Width="240"
                         Height="340"
                         Background="#E5E7EB"
@@ -33,7 +32,6 @@
                            Stretch="UniformToFill"/>
                 </Border>
 
-                <!-- INFORMACIÓN -->
                 <StackPanel Grid.Column="1"
                             Margin="30,0,0,0">
 
@@ -74,7 +72,6 @@
                                TextWrapping="Wrap"
                                Foreground="#334155"/>
 
-                    <!-- BOTONES -->
                     <StackPanel Orientation="Horizontal"
                                 Margin="0,30,0,0">
 

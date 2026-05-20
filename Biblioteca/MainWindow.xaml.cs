@@ -34,6 +34,7 @@ namespace Biblioteca
             }
             else
             {
+                btnInicioUsuario.Visibility = Visibility.Collapsed;
                 btndashboard.Visibility = Visibility.Collapsed;
                 btnLibros.Visibility = Visibility.Collapsed;
                 btnListaLibros.Visibility = Visibility.Collapsed;
@@ -45,17 +46,13 @@ namespace Biblioteca
         {
             if (_usuario.TipoUsuario == 1)
             {
-                MainContent.Content = new DashboardView();
-            }
-            else
-            {
                 MainContent.Content = new Usuario();
             }
         }
 
         private void Dashboard_Click(object sender, RoutedEventArgs e)
         {
-            MainContent.Content = new DashboardView();
+            MainContent.Content = new Usuario();
         }
 
         private void Libros_Click(object sender, RoutedEventArgs e)

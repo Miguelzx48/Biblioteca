@@ -14,31 +14,25 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <!-- HEADER -->
         <TextBlock Text="Top de Libros por Mes"
                    FontSize="28"
                    FontWeight="Bold"
                    Foreground="#1E293B"
                    Margin="10"/>
 
-        <!-- CONTENIDO -->
         <StackPanel Grid.Row="1"
                     Margin="10">
 
-            <TextBlock Text="Libros más prestados del mes, dirigete al apartado de libros para realizar prestamos"
+            <TextBlock Text="Libros más prestados del mes, dirijase al apartado de libros para realizar prestamos"
                        FontSize="20"
                        FontWeight="SemiBold"
                        Foreground="#1E293B"
                        Margin="0,0,0,15"/>
 
             <ScrollViewer VerticalScrollBarVisibility="Auto">
-
                 <ItemsControl x:Name="itemsLibrosMasPrestados">
-
                     <ItemsControl.ItemTemplate>
-
                         <DataTemplate>
-
                             <Border Background="White"
                                     CornerRadius="10"
                                     Padding="10"

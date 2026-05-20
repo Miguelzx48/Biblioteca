@@ -16,14 +16,13 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <!-- TÍTULO -->
+        
         <TextBlock Text="Mis Multas"
                    FontSize="32"
                    FontWeight="Bold"
                    Foreground="#1E293B"
                    Margin="0,0,0,20"/>
 
-        <!-- TOTAL MULTAS -->
         <Border Grid.Row="1"
                 Background="White"
                 CornerRadius="12"
@@ -40,13 +39,10 @@
 
         </Border>
 
-        <!-- TABLA -->
         <DataGrid x:Name="dgMultas"
                   Grid.Row="2"
                   AutoGenerateColumns="False"
                   Background="White"
-                  CanUserAddRows="False"
-                  IsReadOnly="True"
                   RowHeight="45"
                   BorderBrush="#E2E8F0"
                   BorderThickness="1">
@@ -73,7 +69,6 @@
                                     Binding="{Binding Multa}"
                                     Width="120"/>
 
-                <!-- ACCIÓN -->
                 <DataGridTemplateColumn Header="Acción"
                                         Width="140">
 

@@ -16,21 +16,18 @@
 
             <StackPanel>
 
-                <!-- TITULO -->
                 <TextBlock Text="Mi Perfil"
                            FontSize="36"
                            FontWeight="Bold"
                            Foreground="#1E293B"
                            Margin="0,0,0,30"/>
-
-                <!-- SUBTITULO -->
+ 
                 <TextBlock Text="Información del usuario"
                            FontSize="22"
                            FontWeight="Bold"
                            Foreground="#334155"
                            Margin="0,0,0,25"/>
 
-                <!-- DATOS -->
                 <Grid>
 
                     <Grid.ColumnDefinitions>
@@ -47,7 +44,6 @@
                         <RowDefinition Height="55"/>
                     </Grid.RowDefinitions>
 
-                    <!-- NOMBRES -->
                     <TextBlock Text="Nombres:"
                                Grid.Row="0"
                                Grid.Column="0"
@@ -61,7 +57,6 @@
                                FontSize="18"
                                VerticalAlignment="Center"/>
 
-                    <!-- APELLIDOS -->
                     <TextBlock Text="Apellidos:"
                                Grid.Row="1"
                                Grid.Column="0"
@@ -75,7 +70,6 @@
                                FontSize="18"
                                VerticalAlignment="Center"/>
 
-                    <!-- EMAIL -->
                     <TextBlock Text="Email:"
                                Grid.Row="2"
                                Grid.Column="0"
@@ -89,7 +83,6 @@
                                FontSize="18"
                                VerticalAlignment="Center"/>
 
-                    <!-- TELEFONO -->
                     <TextBlock Text="Teléfono:"
                                Grid.Row="3"
                                Grid.Column="0"
@@ -103,7 +96,6 @@
                                FontSize="18"
                                VerticalAlignment="Center"/>
 
-                    <!-- FECHA -->
                     <TextBlock Text="Fecha nacimiento:"
                                Grid.Row="4"
                                Grid.Column="0"
@@ -117,7 +109,6 @@
                                FontSize="18"
                                VerticalAlignment="Center"/>
 
-                    <!-- ESTADO -->
                     <TextBlock Text="Estado:"
                                Grid.Row="5"
                                Grid.Column="0"

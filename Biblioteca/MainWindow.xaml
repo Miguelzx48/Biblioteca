@@ -84,9 +84,8 @@
                                Padding="15"/>
                 </StackPanel>
 
-                <StackPanel Grid.Row="1" Margin="0,40,0,0">
+                <StackPanel Grid.Row="1">
 
-                    <!-- ADMIN -->
                     <Button x:Name="btndashboard"
                             Style="{StaticResource MenuButtonStyle}"
                             Click="Dashboard_Click"
@@ -127,7 +126,6 @@
                         </StackPanel>
                     </Button>
 
-                    <!-- USUARIO -->
                     <Button x:Name="btnInicioUsuario"
                             Style="{StaticResource MenuButtonStyle}"
                             Click="InicioUsuario_Click"

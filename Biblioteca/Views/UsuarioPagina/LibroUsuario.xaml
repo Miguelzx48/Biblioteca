@@ -14,7 +14,6 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <!-- BUSCADOR -->
         <Border Grid.Row="0"
                 Background="White"
                 CornerRadius="20"
@@ -40,7 +39,7 @@
                          TextChanged="txtBuscarLibro_TextChanged"/>
 
                 <Button Grid.Column="1"
-                        Content="🔎"
+                        Content="Buscar"
                         Background="#1E293B"
                         Foreground="White"
                         BorderThickness="0"
@@ -48,14 +47,12 @@
                         Height="40"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-                        Cursor="Hand"
-                        Click="btnBuscarLibroClick"/>
+                        Cursor="Hand"/>
 
             </Grid>
 
         </Border>
 
-        <!-- LIBROS -->
         <ScrollViewer Grid.Row="1"
                       VerticalScrollBarVisibility="Auto">
 
@@ -82,7 +79,6 @@
 
                             <StackPanel>
 
-                                <!-- NOMBRE -->
                                 <TextBlock Text="{Binding Nombre}"
                                            FontSize="16"
                                            FontWeight="Bold"
@@ -91,7 +87,6 @@
                                            Margin="10,12,10,5"
                                            TextWrapping="Wrap"/>
 
-                                <!-- IMAGEN -->
                                 <Border Width="160"
                                         Height="200"
                                         Background="#E5E7EB"
@@ -102,8 +97,7 @@
                                            Stretch="UniformToFill"/>
 
                                 </Border>
-
-                                <!-- AUTOR -->
+ 
                                 <TextBlock Text="{Binding Autor}"
                                            FontSize="13"
                                            Foreground="#64748B"
@@ -111,7 +105,6 @@
                                            Margin="10,10,10,5"
                                            TextWrapping="Wrap"/>
 
-                                <!-- BOTÓN -->
                                 <Button Content="Ver detalles"
                                         Width="140"
                                         Height="35"

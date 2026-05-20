@@ -22,14 +22,6 @@ namespace Biblioteca.Views.UsuarioPagina
                 controller.ObtenerTodos();
         }
 
-        private void btnBuscarLibroClick(object sender, RoutedEventArgs e)
-        {
-            string texto = txtBuscarLibro.Text;
-
-            itemsLibros.ItemsSource =
-                controller.BuscadorLibros(texto);
-        }
-
         private void txtBuscarLibro_TextChanged(object sender, TextChangedEventArgs e)
         {
             string texto = txtBuscarLibro.Text;

@@ -237,7 +237,7 @@ namespace Biblioteca.Db
                             lib.Stock = result.GetInt32("Stock");
                             lib.Descripcion = result.GetString("Descripcion");
                             lib.AnioPublicacion = result.GetInt32("AnioPublicacion");
-                            lib.Imagen = result.GetString("Imagen");
+                            lib.Imagen = result.IsDBNull(result.GetOrdinal("Imagen")) ? null : result.GetString("Imagen");
 
                             lista.Add(lib);
                         }
