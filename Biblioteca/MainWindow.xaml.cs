@@ -57,51 +57,12 @@ namespace Biblioteca
 
         private void Libros_Click(object sender, RoutedEventArgs e)
         {
-            LibroView vista = new LibroView(_usuario);
-
-            vista.CambiarVista += (nuevaVista) =>
-            {
-                MainContent.Content = nuevaVista;
-            };
-
-            MainContent.Content = vista;
+            MainContent.Content = new LibroView(_usuario);
         }
 
         private void ListaLibros_Click(object sender, RoutedEventArgs e)
         {
-            ListaLibrosView vista = new ListaLibrosView(_usuario);
-
-            vista.CambiarVista += CambiarVista;
-
-            MainContent.Content = vista;
-        }
-
-        private void CambiarVista(UserControl nuevaVista)
-        {
-            if (nuevaVista is ListaLibrosView lista)
-            {
-                lista.CambiarVista += CambiarVista;
-            }
-
-            if (nuevaVista is LibroView libro)
-            {
-                libro.CambiarVista += CambiarVista;
-            }
-
-            if (nuevaVista is ActualizarLibroView actualizar)
-            {
-                actualizar.LibroActualizado += () =>
-                {
-                    ListaLibrosView listaNueva =
-                        new ListaLibrosView(_usuario);
-
-                    listaNueva.CambiarVista += CambiarVista;
-
-                    MainContent.Content = listaNueva;
-                };
-            }
-
-            MainContent.Content = nuevaVista;
+            MainContent.Content = new ListaLibrosView(_usuario);
         }
 
         private void Prestamo_Click(object sender, RoutedEventArgs e)
@@ -144,7 +105,6 @@ namespace Biblioteca
             LoginView login = new LoginView();
 
             login.Show();
-
             this.Close();
         }
     }
