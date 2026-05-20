@@ -38,7 +38,6 @@ namespace Biblioteca
                 btnLibros.Visibility = Visibility.Collapsed;
                 btnListaLibros.Visibility = Visibility.Collapsed;
                 btnPrestamoAdmin.Visibility = Visibility.Collapsed;
-                btnUsuarios.Visibility = Visibility.Collapsed;
             }
         }
 

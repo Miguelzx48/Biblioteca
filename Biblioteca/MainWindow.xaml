@@ -127,16 +127,6 @@
                         </StackPanel>
                     </Button>
 
-                    <Button x:Name="btnUsuarios"
-                            Style="{StaticResource MenuButtonStyle}"
-                            Click="Usuarios_Click"
-                            Background="#FF00208C">
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="/Imagenes/manager_4395949.png" Width="50" Height="34" Margin="0,0,15,0"/>
-                            <TextBlock Text="CREAR ADMINISTRADOR" VerticalAlignment="Center"/>
-                        </StackPanel>
-                    </Button>
-
                     <!-- USUARIO -->
                     <Button x:Name="btnInicioUsuario"
                             Style="{StaticResource MenuButtonStyle}"

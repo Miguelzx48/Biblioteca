@@ -28,7 +28,6 @@ namespace Biblioteca.Views
             CargarPrestamos();
         }
 
-        // 📚 CARGAR TODOS LOS PRÉSTAMOS
         private void CargarPrestamos()
         {
             dgPrestamos.ItemsSource = null;
@@ -36,7 +35,6 @@ namespace Biblioteca.Views
             dgPrestamos.ItemsSource = controller.LeerListaPrestamos();
         }
 
-        // 🔎 BUSCADOR
         private void txtBuscar_TextChanged(object sender, TextChangedEventArgs e)
         {
             string texto = txtBuscar.Text;
@@ -54,8 +52,6 @@ namespace Biblioteca.Views
 
             dgPrestamos.ItemsSource = lista;
         }
-
-        // 💰 ACTUALIZAR MULTA
         private void BtnActualizarMultaClick(object sender, RoutedEventArgs e)
         {
             Button btn = sender as Button;
@@ -81,7 +77,6 @@ namespace Biblioteca.Views
             CargarPrestamos();
         }
 
-        // 🗑️ ELIMINAR PRÉSTAMO
         private void BtnEliminarClick(object sender, RoutedEventArgs e)
         {
             Button btn = sender as Button;

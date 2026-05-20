@@ -71,6 +71,12 @@ namespace Biblioteca.Views.Windows
             usuario = new Models.Usuario(email, password, nombres, apellidos, tipoUsuario, fechaNacimiento, telefono, true);
 
             lblResponse.Content = controller.Crear(usuario);
+
+            
+            LoginView login = new LoginView();
+            login.Show();
+
+            this.Close();
         }
 
         private void Actualizar()

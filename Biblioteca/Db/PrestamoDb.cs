@@ -81,7 +81,7 @@ namespace Biblioteca.Db
                             pre.IdLibro = result.GetInt32("IdLibro");
                             pre.FechaPrestamo = result.GetDateTime("FechaPrestamo");
                             pre.FechaEstimadaDevolucion = result.GetDateTime("FechaEstimadaDevolucion");
-                            pre.FechaRealDevolucion = result.GetDateTime("FechaRealDevolucion");
+                            pre.FechaRealDevolucion = result.IsDBNull(result.GetOrdinal("FechaRealDevolucion")) ? (DateTime?)null : result.GetDateTime("FechaRealDevolucion");
                             pre.Multa = result.GetDouble("Multa");
                             pre.Estado = result.GetString("Estado");
                             pre.CantidadDiasMora = result.GetInt32("CantidadDiasMora");
@@ -119,7 +119,7 @@ namespace Biblioteca.Db
                             pre.IdLibro = result.GetInt32("IdLibro");
                             pre.FechaPrestamo = result.GetDateTime("FechaPrestamo");
                             pre.FechaEstimadaDevolucion = result.GetDateTime("FechaEstimadaDevolucion");
-                            pre.FechaRealDevolucion = result.GetDateTime("FechaRealDevolucion");
+                            pre.FechaRealDevolucion = result.IsDBNull(result.GetOrdinal("FechaRealDevolucion")) ? (DateTime?)null : result.GetDateTime("FechaRealDevolucion");
                             pre.Multa = result.GetDouble("Multa");
                             pre.Estado = result.GetString("Estado");
                             pre.CantidadDiasMora = result.GetInt32("CantidadDiasMora");
@@ -280,8 +280,7 @@ namespace Biblioteca.Db
                             pre.FechaEstimadaDevolucion =
                                 result.GetDateTime("FechaEstimadaDevolucion");
 
-                            pre.FechaRealDevolucion =
-                                result.GetDateTime("FechaRealDevolucion");
+                            pre.FechaRealDevolucion = result.IsDBNull(result.GetOrdinal("FechaRealDevolucion")) ? (DateTime?)null : result.GetDateTime("FechaRealDevolucion");
 
                             pre.Multa = result.GetInt32("Multa");
 

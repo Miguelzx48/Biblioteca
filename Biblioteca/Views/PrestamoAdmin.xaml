@@ -16,14 +16,12 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <!-- 📌 TITULO -->
         <TextBlock Text="Gestión de Préstamos"
                    FontSize="34"
                    FontWeight="Bold"
                    Foreground="#1E293B"
                    VerticalAlignment="Center"/>
 
-        <!-- 🔎 BUSCADOR -->
         <Border Grid.Row="1"
                 Background="White"
                 CornerRadius="15"
@@ -38,7 +36,6 @@
                     <ColumnDefinition Width="60"/>
                 </Grid.ColumnDefinitions>
 
-                <!-- INPUT -->
                 <TextBox x:Name="txtBuscar"
                          FontSize="16"
                          BorderThickness="0"
@@ -47,7 +44,6 @@
                          Background="Transparent"
                          TextChanged="txtBuscar_TextChanged"/>
 
-                <!-- ICONO -->
                 <Border Grid.Column="1"
                         Background="#1E293B"
                         CornerRadius="0,15,15,0">
@@ -64,7 +60,6 @@
 
         </Border>
 
-        <!-- 📚 TABLA -->
         <Border Grid.Row="2"
                 Background="White"
                 CornerRadius="15"
@@ -84,47 +79,37 @@
 
                 <DataGrid.Columns>
 
-                    <!-- ID -->
                     <DataGridTextColumn Header="ID"
                                         Binding="{Binding IdPrestamo}"
                                         Width="70"/>
-
-                    <!-- USUARIO -->
                     <DataGridTextColumn Header="Usuario"
                                         Binding="{Binding IdUsuario}"
                                         Width="100"/>
-
-                    <!-- LIBRO -->
+  
                     <DataGridTextColumn Header="Libro"
                                         Binding="{Binding IdLibro}"
                                         Width="100"/>
 
-                    <!-- FECHA PRESTAMO -->
                     <DataGridTextColumn Header="Fecha préstamo"
                                         Binding="{Binding FechaPrestamo}"
                                         Width="*"/>
 
-                    <!-- FECHA DEVOLUCION -->
                     <DataGridTextColumn Header="Fecha devolución"
                                         Binding="{Binding FechaEstimadaDevolucion}"
                                         Width="*"/>
 
-                    <!-- ESTADO -->
                     <DataGridTextColumn Header="Estado"
                                         Binding="{Binding Estado}"
                                         Width="120"/>
 
-                    <!-- MULTA -->
                     <DataGridTextColumn Header="Multa"
                                         Binding="{Binding Multa}"
                                         Width="120"/>
 
-                    <!-- DIAS MORA -->
                     <DataGridTextColumn Header="Días mora"
                                         Binding="{Binding CantidadDiasMora}"
                                         Width="120"/>
 
-                    <!-- ACCIONES -->
                     <DataGridTemplateColumn Header="Acciones"
                                             Width="240">
 
@@ -135,7 +120,6 @@
                                 <StackPanel Orientation="Horizontal"
                                             HorizontalAlignment="Center">
 
-                                    <!-- ACTUALIZAR -->
                                     <Button Content="Actualizar"
                                             Width="100"
                                             Height="32"
@@ -145,7 +129,6 @@
                                             BorderThickness="0"
                                             Click="BtnActualizarMultaClick"/>
 
-                                    <!-- ELIMINAR -->
                                     <Button Content="Eliminar"
                                             Width="90"
                                             Height="32"
