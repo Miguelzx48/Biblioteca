@@ -77,7 +77,7 @@ namespace Biblioteca.Views.UsuarioPagina
             prestamo.Multa = 0;
 
             bool ok =
-                controller.ActualizarMultas(prestamo);
+                controller.DevolverPrestamo(prestamo);
 
             if (ok)
             {
