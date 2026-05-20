@@ -14,11 +14,9 @@ namespace Biblioteca.Views
 {
     public partial class LibroView : UserControl
     {
-        public event Action<UserControl> CambiarVista;
 
         private Models.Usuario _usuario;
 
-        // AQUI VA LA VARIABLE
         private string rutaImagen = "";
 
         public LibroView(Models.Usuario usuario)
@@ -27,7 +25,6 @@ namespace Biblioteca.Views
             _usuario = usuario;
         }
 
-        // AQUI VA EL METODO
         private void SeleccionarImagen(object sender, RoutedEventArgs e)
         {
             OpenFileDialog open = new OpenFileDialog();

@@ -18,16 +18,10 @@ namespace Biblioteca.Views
 {
     public partial class ListaLibrosView : UserControl
     {
-        public event Action<UserControl> CambiarVista;
 
         private libroService servicio = new libroService();
         private Models.Usuario _usuario;
 
-        public string TextoBoton =>
-            _usuario?.TipoUsuario == 1 ? "Gestionar" : "Examinar";
-
-        public string ColorBoton =>
-            _usuario?.TipoUsuario == 1 ? "Blue" : "Green";
         private List<libro> listaOriginal;
         public ListaLibrosView(Models.Usuario usuario)
         {
@@ -45,28 +39,6 @@ namespace Biblioteca.Views
             CargarLibros();
         }
 
-        private void Accion_Click(object sender, RoutedEventArgs e)
-        {
-            Button boton = sender as Button;
-            libro libroSeleccionado = boton.Tag as libro;
-
-            if (_usuario != null && _usuario.TipoUsuario == 1)
-            {
-                var vista = new ActualizarLibroView(libroSeleccionado);
-                CambiarVista?.Invoke(vista);
-            }
-            else
-            {
-                var vista = new DetalleLibroView(libroSeleccionado, _usuario);
-
-                vista.CambiarVista += (nuevaVista) =>
-                {
-                    CambiarVista?.Invoke(nuevaVista);
-                };
-
-                CambiarVista?.Invoke(vista);
-            }
-        }
         private void TextBoxBuscar_GotFocus(object sender, RoutedEventArgs e)
         {
             if (txtBuscar.Text == "Buscar libro...")
@@ -114,43 +86,20 @@ namespace Biblioteca.Views
             dgLibros.ItemsSource = listaOriginal;
         }
 
-        private void Eliminar(object sender, RoutedEventArgs e)
+        private void gestionarLibro(object sender, RoutedEventArgs e)
         {
-            Button boton = sender as Button;
-            libro libroSeleccionado = boton.Tag as libro;
-
-            MessageBoxResult resultado = MessageBox.Show(
-                "¿Seguro desea eliminar el libro: " + libroSeleccionado.Nombre + "?",
-                "Confirmar eliminación",
-                MessageBoxButton.YesNo,
-                MessageBoxImage.Warning);
-
-            if (resultado == MessageBoxResult.Yes)
-            {
-                servicio.Eliminar(libroSeleccionado.IdLibro);
-
-                MessageBox.Show("Libro eliminado correctamente");
-
-                CargarLibros();
-            }
-        }
-
-        public void Actualizar(object sender, RoutedEventArgs e)
-        {
-            Button boton = sender as Button;
-            libro libroSeleccionado = boton.Tag as libro;
+            libro libroSeleccionado = (libro)dgLibros.SelectedItem;
 
             ActualizarLibroView vista =
                 new ActualizarLibroView(libroSeleccionado);
 
-            vista.LibroActualizado += () =>
-            {
-                CargarLibros();
-                CambiarVista?.Invoke(this);
-            };
+            MainWindow ventanaPrincipal =
+        (MainWindow)Window.GetWindow(this);
 
-            CambiarVista?.Invoke(vista);
+            ventanaPrincipal.MainContent.Content =
+                new ActualizarLibroView(libroSeleccionado);
         }
+
         private void ExportarPDF(object sender, RoutedEventArgs e)
         {
             try

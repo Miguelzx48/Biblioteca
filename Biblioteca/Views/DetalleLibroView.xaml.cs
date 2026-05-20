@@ -8,7 +8,6 @@ namespace Biblioteca.Views
 {
     public partial class DetalleLibroView : UserControl
     {
-        public event Action<UserControl> CambiarVista;
 
         private Usuario _usuario;
 
@@ -36,8 +35,6 @@ namespace Biblioteca.Views
         private void Cerrar_Click(object sender, RoutedEventArgs e)
         {
             ListaLibrosView vista = new ListaLibrosView(_usuario);
-
-            CambiarVista?.Invoke(vista);
         }
     }
 }

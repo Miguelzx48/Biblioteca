@@ -1,8 +1,8 @@
 ﻿<UserControl x:Class="Biblioteca.Views.ActualizarLibroView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Height="650"
-        Width="800"
+        HorizontalAlignment="Stretch"
+        VerticalAlignment="Stretch"
         Background="#F5F7FA">
     <Grid Background="#FFCDE1FF">
         <Grid.RowDefinitions>

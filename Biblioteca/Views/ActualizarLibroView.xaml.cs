@@ -10,7 +10,6 @@ namespace Biblioteca.Views
     public partial class ActualizarLibroView : UserControl
     {
         public event Action LibroActualizado;
-
         libro libroActual;
         public ActualizarLibroView(libro libroSeleccionado)
         {
@@ -59,6 +58,7 @@ namespace Biblioteca.Views
                 servicio.Eliminar(libroActual.IdLibro);
                 MessageBox.Show("Libro eliminado correctamente");
                 LibroActualizado?.Invoke();
+
             }
         }
 

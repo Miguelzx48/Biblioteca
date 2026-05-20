@@ -12,7 +12,6 @@ namespace Biblioteca.Views.UsuarioPagina
         public LibroUsuario()
         {
             InitializeComponent();
-
             CargarLibros();
         }
 
