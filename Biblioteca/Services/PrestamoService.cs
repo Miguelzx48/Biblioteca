@@ -113,26 +113,44 @@ namespace Biblioteca.Services
 
             return null;
         }
+        public void ActualizarMultasUsuario(int idUsuario)
+        {
+            List<Prestamo> prestamos =
+                prestamoDb.LeerListaPrestamos();
 
+            foreach (Prestamo prestamo in prestamos)
+            {
+                if (
+                    prestamo.IdUsuario == idUsuario &&
+                    prestamo.Estado == "Activo"
+                )
+                {
+                    CalcularMultas(prestamo);
+                }
+            }
+        }
         public Prestamo CalcularMultas(Prestamo prestamo)
         {
             PrestamoDb prestamoDb =
                 new PrestamoDb();
 
-            if (DateTime.Now > prestamo.FechaEstimadaDevolucion)
+            if (
+                prestamo.Estado == "Activo" &&
+                DateTime.Now >
+                prestamo.FechaEstimadaDevolucion
+            )
             {
-                prestamo.CantidadDiasMora = (DateTime.Now - prestamo.FechaEstimadaDevolucion).Days;
+                prestamo.CantidadDiasMora =
+                    (
+                        DateTime.Now -
+                        prestamo.FechaEstimadaDevolucion
+                    ).Days;
 
-                prestamo.Multa = prestamo.CantidadDiasMora * 5000;
+                prestamo.Multa =
+                    prestamo.CantidadDiasMora * 5000;
+
+                prestamoDb.ActualizarMultas(prestamo);
             }
-            else
-            {
-                prestamo.CantidadDiasMora = 0;
-
-                prestamo.Multa = 0;
-            }
-
-            prestamoDb.ActualizarMultas(prestamo);
 
             return prestamo;
         }
@@ -141,27 +159,39 @@ namespace Biblioteca.Services
         {
             LibroDb libroDb = new LibroDb();
 
-            PrestamoDb prestamoDb = new PrestamoDb();
+            PrestamoDb prestamoDb =
+                new PrestamoDb();
 
-            libro lib = libroDb.LeerLibroPorId(prestamo.IdLibro);
+            libro lib =
+                libroDb.LeerLibroPorId(prestamo.IdLibro);
 
-            if (lib != null && prestamo.Estado == "Activo")
+            if (
+                lib != null &&
+                prestamo.Estado == "Activo"
+            )
             {
                 prestamo.FechaRealDevolucion =
                     DateTime.Now;
+
+                CalcularMultas(prestamo);
 
                 prestamo.Estado = "Devuelto";
 
                 lib.Stock++;
 
-                libroDb.AumentarStock(lib.IdLibro, lib.Stock);
+                libroDb.AumentarStock(
+                    lib.IdLibro,
+                    lib.Stock
+                );
 
-                return prestamoDb.EditarPrestamo(prestamo.IdPrestamo, prestamo);
+                return prestamoDb.EditarPrestamo(
+                    prestamo.IdPrestamo,
+                    prestamo
+                );
             }
 
             return false;
         }
-
         public List<Prestamo> BuscarPrestamo(string texto)
         {
             return prestamoDb.BuscarPrestamo(texto);

@@ -11,14 +11,18 @@ namespace Biblioteca.Controllers
 {
     public class PrestamoController
     {
-        PrestamoService service = new PrestamoService();
+        PrestamoService service =new PrestamoService();
 
+        public void ActualizarMultasUsuario(int idUsuario)
+        {
+            service.ActualizarMultasUsuario(idUsuario);
+        }
         public bool CrearPrestamo(Prestamo prestamo)
         {
 
             return service.CrearPrestamo(prestamo);
         }
-
+        
         public bool ActualizarMultas(Prestamo prestamo)
         {
 

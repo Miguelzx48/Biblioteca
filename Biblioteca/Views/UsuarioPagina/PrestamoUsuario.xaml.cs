@@ -27,6 +27,8 @@ namespace Biblioteca.Views.UsuarioPagina
 
         private void CargarPrestamos()
         {
+            controller.ActualizarMultasUsuario(
+            idUsuarioActual);
             List<Prestamo> prestamos =
                 controller.LeerListaPrestamos();
 

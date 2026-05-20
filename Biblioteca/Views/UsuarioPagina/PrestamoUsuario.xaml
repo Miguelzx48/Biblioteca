@@ -15,14 +15,13 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <!-- TITULO -->
         <TextBlock Text="Mis Préstamos"
                    FontSize="32"
                    FontWeight="Bold"
                    Foreground="#1E293B"
                    Margin="0,0,0,20"/>
 
-        <!-- TABLA -->
+        
         <DataGrid x:Name="dgPrestamos"
                   Grid.Row="1"
                   AutoGenerateColumns="False"
@@ -40,6 +39,11 @@
                 <DataGridTextColumn Header="Fecha Límite"
                                     Binding="{Binding FechaEstimadaDevolucion}"
                                     Width="*"/>
+                
+                <DataGridTextColumn Header="Fecha devolución"
+                                    Binding="{Binding FechaRealDevolucion}"
+                                    Width="*"/>
+                
 
                 <DataGridTextColumn Header="Estado"
                                     Binding="{Binding Estado}"

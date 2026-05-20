@@ -32,7 +32,7 @@
                 BorderThickness="1">
 
             <TextBlock x:Name="txtTotalMulta"
-                       Text="Multa total: $0"
+                       Text=" Total de tus multas: $0"
                        FontSize="22"
                        FontWeight="Bold"
                        Foreground="#1E293B"/>
@@ -40,12 +40,15 @@
         </Border>
 
         <DataGrid x:Name="dgMultas"
-                  Grid.Row="2"
-                  AutoGenerateColumns="False"
-                  Background="White"
-                  RowHeight="45"
-                  BorderBrush="#E2E8F0"
-                  BorderThickness="1">
+          Grid.Row="2"
+          AutoGenerateColumns="False"
+          Background="White"
+          RowHeight="45"
+          BorderBrush="#E2E8F0"
+          BorderThickness="1"
+          CanUserAddRows="False"
+          HeadersVisibility="Column"
+          RowHeaderWidth="0">
 
             <DataGrid.Columns>
 
@@ -60,10 +63,10 @@
                 <DataGridTextColumn Header="Fecha límite"
                                     Binding="{Binding FechaEstimadaDevolucion}"
                                     Width="*"/>
-
-                <DataGridTextColumn Header="Fecha devolución"
-                                    Binding="{Binding FechaRealDevolucion}"
+                <DataGridTextColumn Header="Estado"
+                                    Binding="{Binding Estado}"
                                     Width="*"/>
+
 
                 <DataGridTextColumn Header="Multa"
                                     Binding="{Binding Multa}"
@@ -79,10 +82,36 @@
                             <Button Content="Pagar"
                                     Width="100"
                                     Height="32"
-                                    Background="#1E293B"
+                                    Background="blue"
                                     Foreground="White"
                                     BorderThickness="0"
-                                    Click="BtnPagarClick"/>
+                                    FontWeight="Bold"
+                                    
+                                    Click="BtnPagarClick">
+
+
+                                <Button.Style>
+                                    <Style TargetType="Button">
+
+                                        <Setter Property="Visibility"
+                    Value="Visible"/>
+
+                                        <Style.Triggers>
+
+                                            <DataTrigger Binding="{Binding Estado}"
+                             Value="Devuelto">
+
+                                                <Setter Property="Visibility"
+                            Value="Collapsed"/>
+
+                                            </DataTrigger>
+
+                                        </Style.Triggers>
+
+                                    </Style>
+                                </Button.Style>
+
+                            </Button>
 
                         </DataTemplate>
 

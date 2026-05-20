@@ -27,6 +27,10 @@ namespace Biblioteca.Views.UsuarioPagina
 
         private void CargarMultas()
         {
+            controller.ActualizarMultasUsuario(
+                idUsuarioActual
+            );
+
             List<Prestamo> prestamos =
                 controller.LeerListaPrestamos();
 
@@ -37,8 +41,10 @@ namespace Biblioteca.Views.UsuarioPagina
 
             foreach (Prestamo p in prestamos)
             {
-                if (p.IdUsuario == idUsuarioActual &&
-                    p.Multa > 0)
+                if (
+                    p.IdUsuario == idUsuarioActual &&
+                    p.Multa > 0
+                )
                 {
                     multas.Add(p);
 
